@@ -1,6 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <h1>contribute<span style="color:#E11D48">,</span>design</h1>
+  <h3>Welcome to the contribute.design repository</h3>
+  <strong>All you need for design <> engineering collaboration on open source projects</strong>
+  <h6>Made with ❤️ by designers and developers for developers and designers</h6>
+</div>
+<br>
+<p align="center">
+  <a href="https://contribute.design/contribute-design/contribute.design">
+    <img src="https://contribute.design/api/shield/contribute-design/contribute.design" alt="Design contributions for contribute.design">
+  </a>
+</p>
 
-## Getting Started
+## contribute.design
+
+> what we are
+
+what we do
+
+what we care about:
+
+* 🌟 **Collaboration**: 
+* ♾ **Transparency**: 
+* 🧵 **Open-source**: 
+
+## 🌲 contribute.design projects
+
+It might look simple at a glance but our setup contains a lot of different services and parts
+
+### 🙌 .design/
+
+* [.design/](./design) - provides you with some basic guidelines of how we intend to run our design process and relevant information on all the things we design
+
+### 🎨 Frontend
+
+The frontend is part of the monorepo and using styletron + a custom baseweb wrapper
+### 🏗 Backend
+
+The backend is part of the monorepo and accessing it's data from Cloudflare KV
+### 🎈 Scrapers
+
+We're using cloudflare workers to scrape repos and store them in KV 
+
+## 🚀 Running contribute.design locally
+
 
 First, run the development server:
 
@@ -12,23 +54,13 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Deployments on Vercel
 
-To learn more about Next.js, take a look at the following resources:
+We're deploying every branch to a preview-environment on Vercel. The `main` branch gets promoted to production. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Our builds are using vercel's edge-functions and therefor the experimental runtime!
