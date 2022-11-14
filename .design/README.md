@@ -12,7 +12,15 @@
    
 ## Architecture + Flow diagrams
 
-Flow diagrams: 
+### Flow diagrams
+
+**`/api/shield/<org>/<prpject>` endpoint**
+https://www.figma.com/file/0TyptXIxXyxiNmzAqZjNkc/architecture?node-id=3%3A197
+
+**ClopudFlare worker for scraping projects**
+We're using this worker to transition projects from "initially requested via Badge" to "is in our DB"
+https://www.figma.com/file/0TyptXIxXyxiNmzAqZjNkc/architecture?node-id=3%3A198
+
 ## Product Design
 
 Figma files:
