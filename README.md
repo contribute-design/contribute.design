@@ -43,6 +43,16 @@ We're using cloudflare workers to scrape repos and store them in KV
 
 ## 🚀 Running contribute.design locally
 
+Add an `.env` file to the root of your main repository which contains all the relevant keys for the local datastore
+
+```bash 
+CLOUDFLARE_KV_API_TOKEN=
+CLOUDFLARE_ACCOUNT_ID=
+CLOUDFLARE_NAMESPACE_LOG=
+CLOUDFLARE_NAMESPACE_PROJECTS=
+CLOUDFLARE_NAMESPACE_PROJECT_CHECKS=
+```
+    
 
 First, run the development server:
 
