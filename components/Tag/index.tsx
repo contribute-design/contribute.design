@@ -56,7 +56,6 @@ const Tag: React.FC<TagProps> = ({
       variant={variant}
       kind={kind}
       onClick={onClick}
-      onActionClick={onClick}
       {...rest}
     >
       {text || children}
