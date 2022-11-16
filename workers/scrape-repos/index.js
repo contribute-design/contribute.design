@@ -39,26 +39,33 @@ async function handleSchedule(scheduledDate) {
       )
     }
     const ghRepo = `https://api.github.com/repos/${projectCheck.name}`
-    const designCheck = await fetch(`${ghRepo}/contents/.design`, headers)
-    const designResults = await gatherResponse(designCheck)
-    let hasDesign = true
-    if (designResults.message) {
-      // No .design folder, still remove this key from Check
-      // await PROJECT_CHECKS.delete(projectCheck.name);
-      console.log(projectCheck.name, 'no .design folder')
-      hasDesign = false
-    }
     const response = await fetch(ghRepo, headers)
     const results = await gatherResponse(response)
     const projectData = results
-    await PROJECTS.put(projectCheck.name, JSON.stringify(projectData), {
-      metadata: {
-        createdAt:
-          project && metadata.createdAt ? metadata.createdAt : new Date(),
-        lasUpdatedAt: new Date(),
-        hasDesign: hasDesign,
-      },
-    })
-    await PROJECT_CHECKS.delete(projectCheck.name)
+
+    if (projectData.message) {
+      // this is not a valid gh repo, remove it form checks and skip
+      await PROJECT_CHECKS.delete(projectCheck.name)
+      console.log(projectCheck.name, 'no valid repo')
+    } else {
+      const designCheck = await fetch(`${ghRepo}/contents/.design`, headers)
+      const designResults = await gatherResponse(designCheck)
+      let hasDesign = true
+      if (designResults.message) {
+        // No .design folder, still remove this key from Check
+        // await PROJECT_CHECKS.delete(projectCheck.name);
+        console.log(projectCheck.name, 'no .design folder')
+        hasDesign = false
+      }
+      await PROJECTS.put(projectCheck.name, JSON.stringify(projectData), {
+        metadata: {
+          createdAt:
+            project && metadata.createdAt ? metadata.createdAt : new Date(),
+          lasUpdatedAt: new Date(),
+          hasDesign: hasDesign,
+        },
+      })
+      await PROJECT_CHECKS.delete(projectCheck.name)
+    }
   }
 }
