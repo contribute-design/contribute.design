@@ -1,21 +1,13 @@
 import Head from 'next/head'
 import { FlexGrid } from 'baseui/flex-grid'
 
-import EmptyPage from '../components/EmptyPage/index'
+import EmptyPage from '../components/EmptyPage'
+import Meta from '../components/Meta'
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>
-          designers – design contributions to open source projects made easy
-        </title>
-        <meta
-          name="description"
-          content="OpenSource &amp; Design collaboration made easy. Empower designers, researchers, and product people to help you take your project to another level."
-        />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
+      <Meta title="designers – design contributions to open source projects made easy" />
       {process.env.NEXT_PUBLIC_ENABLE_SITE_PREVIEW ? (
         <FlexGrid
           flexGridColumnCount={1}
