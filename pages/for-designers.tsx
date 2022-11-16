@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Head>
         <title>
-          .design/ – design contributions to open source projects made easy
+          designers – design contributions to open source projects made easy
         </title>
         <meta
           name="description"

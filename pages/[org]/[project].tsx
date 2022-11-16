@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import { FlexGrid } from 'baseui/flex-grid'
 
-import EmptyPage from '../components/EmptyPage/index'
+import EmptyPage from '../../components/EmptyPage/index'
 
 export default function Home() {
   return (
     <>
       <Head>
         <title>
-          .design/ – design contributions to open source projects made easy
+          project – design contributions to open source projects made easy
         </title>
         <meta
           name="description"

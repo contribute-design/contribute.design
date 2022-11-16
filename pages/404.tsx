@@ -1,14 +1,15 @@
 import Head from 'next/head'
-import { FlexGrid } from 'baseui/flex-grid'
+import { FlexGrid, FlexGridItem } from 'baseui/flex-grid'
 
 import EmptyPage from '../components/EmptyPage/index'
+import Title from '../components/Title/index';
 
 export default function Home() {
   return (
     <>
       <Head>
         <title>
-          .design/ – design contributions to open source projects made easy
+          404 Not found – design contributions to open source projects made easy
         </title>
         <meta
           name="description"
@@ -16,17 +17,16 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      {process.env.NEXT_PUBLIC_ENABLE_SITE_PREVIEW ? (
-        <FlexGrid
-          flexGridColumnCount={1}
-          flexGridColumnGap="scale800"
-          flexGridRowGap="scale800"
-        >
-          <></>
-        </FlexGrid>
-      ) : (
-        <EmptyPage />
-      )}
+      <EmptyPage />
+      <FlexGrid
+        flexGridColumnCount={1}
+        flexGridColumnGap="scale800"
+        flexGridRowGap="scale800"
+      >
+        <FlexGridItem justifyContent="center" display="flex">
+<Title size="xl">404</Title>
+        </FlexGridItem>
+      </FlexGrid>
     </>
   )
 }
