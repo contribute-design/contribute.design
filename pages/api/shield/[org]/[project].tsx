@@ -2,7 +2,6 @@ import type { NextRequest } from 'next/server'
 import { geolocation, ipAddress } from '@vercel/edge'
 import {
   addProjectCheck,
-  logRequest,
   getProject,
 } from '../../../../helpers/cloudflare'
 import { getRepo } from '../../../../helpers/github'
@@ -24,14 +23,9 @@ export default async function handler(req: NextRequest) {
   const org = searchParams.get('org')
   const project = searchParams.get('project')
 
-  await logRequest({
-    key: Date.now(),
-    value: JSON.stringify({ project: `${org}/${project}`, ipData, geoData }),
-  })
-
   const parsedProject = await getProject({ key: `${org}/${project}` })
 
-  if (!parsedProject.success) {
+  if (parsedProject.result == '404') {
     const ghProject = await getRepo({ org, project })
     if (!ghProject.error) {
       projectIsValid = true
@@ -43,7 +37,10 @@ export default async function handler(req: NextRequest) {
       console.log('no gh repo', org, project)
     }
   } else {
-    projectExistsAlready = true
+    projectIsValid = true
+    if (parsedProject.result.metadata.hasDesign) {
+      projectExistsAlready = true
+    }
   }
 
   const image = projectExistsAlready
