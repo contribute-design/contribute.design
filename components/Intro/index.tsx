@@ -1,23 +1,18 @@
 import React from 'react'
-import Image from 'next/image'
-import { FlexGrid, FlexGridItem } from 'baseui/flex-grid'
+import { Grid, GridItem, GridProps } from '../Grid/index'
+export interface IntroProps extends GridProps {
+  'data-testid'?: string
+}
 
-const Intro: React.FC = () => {
+const Intro: React.FC<IntroProps> = ({
+  children,
+  paddingTop = '12vh',
+  paddingBottom = '12vh',
+}) => {
   return (
-    <FlexGrid
-      flexGridColumnCount={1}
-      flexGridColumnGap="scale800"
-      flexGridRowGap="scale800"
-    >
-      <FlexGridItem justifyContent="center" display="flex">
-        <Image
-          src="/contribute.design.svg"
-          alt="contribute.design"
-          width={387}
-          height={59}
-        />
-      </FlexGridItem>
-    </FlexGrid>
+    <Grid paddingTop={paddingTop} paddingBottom={paddingBottom}>
+      <GridItem>{children}</GridItem>
+    </Grid>
   )
 }
 

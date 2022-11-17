@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Link from 'next/link'
 import {
   HeaderNavigation as BaseHeaderNavigation,
   ALIGN,
@@ -7,11 +8,29 @@ import {
 } from 'baseui/header-navigation'
 import { StyledLink } from 'baseui/link'
 import { useStyletron } from 'baseui'
+import { useRouter } from 'next/router'
 
 import Logo from '../Logo'
+import NavigationLink from '../NavigationLink'
 
-export default () => {
+const navLinks = [
+  { title: 'For developers', path: '/for-developers' },
+  { title: 'For designers', path: '/for-designers' },
+  { title: 'Projects', path: '/projects' },
+]
+const socialLinks = [
+  {
+    icon: false,
+    title: 'GitHub',
+    path: 'https://github.com/contribute_design',
+  },
+  { icon: false, title: 'Twitter', path: 'https://twitter.com/contrib_design' },
+]
+
+const HeaderNavigation = () => {
   const [css, theme] = useStyletron()
+  const router = useRouter()
+
   return (
     <BaseHeaderNavigation
       overrides={{
@@ -28,23 +47,23 @@ export default () => {
     >
       <StyledNavigationList $align={ALIGN.left}>
         <StyledNavigationItem>
-          <Logo />
+          <Link href="/">
+            <Logo />
+          </Link>
         </StyledNavigationItem>
       </StyledNavigationList>
       <StyledNavigationList $align={ALIGN.center} />
       <StyledNavigationList $align={ALIGN.right}>
-        <StyledNavigationItem>
-          <StyledLink href="#basic-link1">For developers</StyledLink>
-        </StyledNavigationItem>
-        <StyledNavigationItem>
-          <StyledLink href="#basic-link2">For designers</StyledLink>
-        </StyledNavigationItem>
-        <StyledNavigationItem>
-          <StyledLink href="#basic-link2">Projects</StyledLink>
-        </StyledNavigationItem>
-        <StyledNavigationItem>
-          <StyledLink href="#basic-link2">For designers</StyledLink>
-        </StyledNavigationItem>
+        {navLinks.map((link) => (
+          <StyledNavigationItem key={link.title}>
+            <NavigationLink
+              href={link.path}
+              active={router.pathname === link.path}
+            >
+              {link.title}
+            </NavigationLink>
+          </StyledNavigationItem>
+        ))}
       </StyledNavigationList>
       <StyledNavigationList $align={ALIGN.right}>
         <StyledNavigationItem>
@@ -57,3 +76,5 @@ export default () => {
     </BaseHeaderNavigation>
   )
 }
+
+export default HeaderNavigation
