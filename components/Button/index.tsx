@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, ButtonProps as BaseButtonProps } from 'baseui/button'
+import { Button as BaseButton, ButtonProps as BaseButtonProps } from 'baseui/button'
 
 type BaseProps = Omit<BaseButtonProps, 'type'> &
   React.HTMLAttributes<HTMLButtonElement>
@@ -12,7 +12,7 @@ export interface ButtonProps extends BaseProps {
   'data-testid'?: string
 }
 
-const ButtonComponent: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   shape = 'default',
   type = 'primary',
   'data-testid': e2eId,
@@ -21,45 +21,45 @@ const ButtonComponent: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   return (
-    <Button
+    <BaseButton
       shape={shape}
       kind={type}
       overrides={{
         BaseButton: {
-          style: ({ $theme }) => {
-            const overrides = {
-              borderTopLeftRadius: '4px',
-              borderTopRightRadius: '4px',
-              borderBottomLeftRadius: '4px',
-              borderBottomRightRadius: '4px',
-              fontWeight: 400,
-            }
-            if (type === 'secondary') {
-              return {
-                ...overrides,
-                borderLeftWidth: '1px',
-                borderRightWidth: '1px',
-                borderTopWidth: '1px',
-                borderBottomWidth: '1px',
-                borderLeftStyle: 'solid',
-                borderRightStyle: 'solid',
-                borderTopStyle: 'solid',
-                borderBottomStyle: 'solid',
-                borderLeftColor: $theme.colors.borderOpaque,
-                borderRightColor: $theme.colors.borderOpaque,
-                borderTopColor: $theme.colors.borderOpaque,
-                borderBottomColor: $theme.colors.borderOpaque,
-              }
-            } else {
-              return {
-                ...overrides,
-                borderLeftStyle: 'none',
-                borderRightStyle: 'none',
-                borderTopStyle: 'none',
-                borderBottomStyle: 'none',
-              }
-            }
-          },
+          // style: ({ $theme }) => {
+          //   const overrides = {
+          //     borderTopLeftRadius: '4px',
+          //     borderTopRightRadius: '4px',
+          //     borderBottomLeftRadius: '4px',
+          //     borderBottomRightRadius: '4px',
+          //     fontWeight: 400,
+          //   }
+          //   if (type === 'secondary') {
+          //     return {
+          //       ...overrides,
+          //       borderLeftWidth: '1px',
+          //       borderRightWidth: '1px',
+          //       borderTopWidth: '1px',
+          //       borderBottomWidth: '1px',
+          //       borderLeftStyle: 'solid',
+          //       borderRightStyle: 'solid',
+          //       borderTopStyle: 'solid',
+          //       borderBottomStyle: 'solid',
+          //       borderLeftColor: $theme.colors.borderOpaque,
+          //       borderRightColor: $theme.colors.borderOpaque,
+          //       borderTopColor: $theme.colors.borderOpaque,
+          //       borderBottomColor: $theme.colors.borderOpaque,
+          //     }
+          //   } else {
+          //     return {
+          //       ...overrides,
+          //       borderLeftStyle: 'none',
+          //       borderRightStyle: 'none',
+          //       borderTopStyle: 'none',
+          //       borderBottomStyle: 'none',
+          //     }
+          //   }
+          // },
           props: {
             'data-testid': e2eId,
           },
@@ -68,8 +68,8 @@ const ButtonComponent: React.FC<ButtonProps> = ({
       {...rest}
     >
       {text || children}
-    </Button>
+    </BaseButton>
   )
 }
 
-export default ButtonComponent
+export default Button

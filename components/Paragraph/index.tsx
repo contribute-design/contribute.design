@@ -26,7 +26,7 @@ const Paragraph: React.FC<ParagraphProps> = ({
       ParagraphComponent = ParagraphXSmall
       break
     case 'm':
-      ParagraphComponent = ParagraphSmall
+      ParagraphComponent = ParagraphMedium
       break
     case 'l':
       ParagraphComponent = ParagraphMedium
