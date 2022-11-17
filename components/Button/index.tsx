@@ -1,5 +1,8 @@
 import React from 'react'
-import { Button as BaseButton, ButtonProps as BaseButtonProps } from 'baseui/button'
+import {
+  Button as BaseButton,
+  ButtonProps as BaseButtonProps,
+} from 'baseui/button'
 
 type BaseProps = Omit<BaseButtonProps, 'type'> &
   React.HTMLAttributes<HTMLButtonElement>
@@ -26,40 +29,47 @@ const Button: React.FC<ButtonProps> = ({
       kind={type}
       overrides={{
         BaseButton: {
-          // style: ({ $theme }) => {
-          //   const overrides = {
-          //     borderTopLeftRadius: '4px',
-          //     borderTopRightRadius: '4px',
-          //     borderBottomLeftRadius: '4px',
-          //     borderBottomRightRadius: '4px',
-          //     fontWeight: 400,
-          //   }
-          //   if (type === 'secondary') {
-          //     return {
-          //       ...overrides,
-          //       borderLeftWidth: '1px',
-          //       borderRightWidth: '1px',
-          //       borderTopWidth: '1px',
-          //       borderBottomWidth: '1px',
-          //       borderLeftStyle: 'solid',
-          //       borderRightStyle: 'solid',
-          //       borderTopStyle: 'solid',
-          //       borderBottomStyle: 'solid',
-          //       borderLeftColor: $theme.colors.borderOpaque,
-          //       borderRightColor: $theme.colors.borderOpaque,
-          //       borderTopColor: $theme.colors.borderOpaque,
-          //       borderBottomColor: $theme.colors.borderOpaque,
-          //     }
-          //   } else {
-          //     return {
-          //       ...overrides,
-          //       borderLeftStyle: 'none',
-          //       borderRightStyle: 'none',
-          //       borderTopStyle: 'none',
-          //       borderBottomStyle: 'none',
-          //     }
-          //   }
-          // },
+          style: ({ $theme }) => {
+            const overrides = {
+              display: 'inline !important',
+              paddingTop: '12px',
+              paddingBottom: '12px',
+              paddingLeft: '12px',
+              paddingRight: '12px',
+              borderLeftWidth: '1px',
+              borderRightWidth: '1px',
+              borderTopWidth: '1px',
+              borderBottomWidth: '1px',
+              borderLeftStyle: 'solid',
+              borderRightStyle: 'solid',
+              borderTopStyle: 'solid',
+              borderBottomStyle: 'solid',
+            }
+            if (type === 'secondary') {
+              return {
+                ...overrides,
+                borderLeftColor: $theme.colors.borderOpaque,
+                borderRightColor: $theme.colors.borderOpaque,
+                borderTopColor: $theme.colors.borderOpaque,
+                borderBottomColor: $theme.colors.borderOpaque,
+                ':hover': {
+                  color: '#fff',
+                  borderLeftColor: $theme.colors.accent,
+                  borderRightColor: $theme.colors.accent,
+                  borderTopColor: $theme.colors.accent,
+                  borderBottomColor: $theme.colors.accent,
+                },
+              }
+            } else {
+              return {
+                ...overrides,
+                borderLeftColor: $theme.colors.accent,
+                borderRightColor: $theme.colors.accent,
+                borderTopColor: $theme.colors.accent,
+                borderBottomColor: $theme.colors.accent,
+              }
+            }
+          },
           props: {
             'data-testid': e2eId,
           },

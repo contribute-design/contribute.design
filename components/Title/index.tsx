@@ -59,8 +59,29 @@ const Title: React.FC<HeaderProps> = ({
                 style: () => {
                   return {
                     '@media (max-width: 1024px)': {
-                      fontSize: '42px',
-                      paddingTop: '14px',
+                      fontSize: '7vw',
+                      lineHeight: '7.5vw',
+                    },
+                    '@media (max-width: 480px)': {
+                      fontSize: '32px',
+                      lineHeight: '34px',
+                    },
+                  }
+                },
+              },
+            }
+          : size === 'l'
+          ? {
+              Block: {
+                style: () => {
+                  return {
+                    '@media (max-width: 1024px)': {
+                      fontSize: '5.5vw',
+                      lineHeight: '6vw',
+                    },
+                    '@media (max-width: 480px)': {
+                      fontSize: '28px',
+                      lineHeight: '30px',
                     },
                   }
                 },

@@ -16,7 +16,13 @@ export default () => {
     <BaseHeaderNavigation
       overrides={{
         Root: {
-          style: () => ({ padding: '40px 40px 40px 16px', background: theme.colors.black }),
+          style: () => ({
+            paddingTop: '40px',
+            paddingRight: '40px',
+            paddingBottom: '40px',
+            paddingLeft: '16px',
+            backgroundColor: theme.colors.black,
+          }),
         },
       }}
     >
