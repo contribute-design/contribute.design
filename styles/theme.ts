@@ -10,7 +10,9 @@ const colors = {
 
 const primitives: Primitives = {
   ...darkThemePrimitives,
-  primaryFontFamily: 'Roboto, Helvetica Neue, Helvetica',
+  // primaryFontFamily: 'Roboto, Helvetica Neue, Helvetica',
+  primaryFontFamily:
+    'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
 
   primary: colors.white,
   accent: colors.rose600,

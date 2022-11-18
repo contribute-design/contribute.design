@@ -5,6 +5,8 @@ import {
   IoIosGitBranch,
 } from 'react-icons/io'
 
+import { BsJournalCheck } from 'react-icons/bs'
+
 import {
   AiOutlineEye,
   AiOutlineIssuesClose,
@@ -19,5 +21,5 @@ export {
   AiOutlineEye as EyeIcon,
   AiOutlineIssuesClose as IssueIcon,
   AiOutlineLink as LinkIcon,
-  
+  BsJournalCheck as GuidelineIcon,
 }

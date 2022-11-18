@@ -71,11 +71,11 @@ const Card: React.FC<CardProps> = ({
                 borderWidth: '1px',
                 backgroundColor: $theme.colors.backgroundPrimary,
                 ':hover': {
-                  // backgroundColor: $theme.colors.primaryB,
+                  backgroundColor: hover ? '#111' : undefined,
                   // borderColor: $theme.colors.primary,
-                  borderColor: $theme.colors.contentSecondary,
+                  borderColor: $theme.colors.contentTertiary,
                 },
-                padding: padded ? '8px' : undefined,
+                padding: padded && !headerImage ? '8px' : undefined,
               }
             },
           },

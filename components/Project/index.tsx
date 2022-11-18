@@ -12,6 +12,7 @@ import {
   IssueIcon,
   GitHubIcon,
   LinkIcon,
+  GuidelineIcon,
 } from '../Icon'
 import Highlight from '../Highlight'
 
@@ -39,6 +40,7 @@ export interface ProjectProps {
 
 interface IconLinkProps {
   icon: React.ReactNode
+  marginRight?: string
   children: React.ReactNode
 }
 
@@ -52,7 +54,7 @@ const data: Project = {
   stargazers_count: 32,
 }
 
-const IconLink: React.FC<IconLinkProps> = ({ icon, children }) => {
+const IconLink: React.FC<IconLinkProps> = ({ icon, children, marginRight }) => {
   const [css, theme] = useStyletron()
   return (
     <span
@@ -61,7 +63,7 @@ const IconLink: React.FC<IconLinkProps> = ({ icon, children }) => {
         flexDirection: 'row',
         justifyItems: 'center',
         alignItems: 'center',
-        marginRight: '8px',
+        marginRight: marginRight ? marginRight : '16px',
         fontSize: '12px',
         transitionProperty: 'color',
         transitionDuration: '200ms',
@@ -73,7 +75,9 @@ const IconLink: React.FC<IconLinkProps> = ({ icon, children }) => {
       })}
     >
       {icon}
-      <span className={css({ marginLeft: '4px', display: 'inline-block' })}>{children}</span>
+      <span className={css({ marginLeft: '4px', display: 'inline-block' })}>
+        {children}
+      </span>
     </span>
   )
 }
@@ -107,9 +111,15 @@ const Project: React.FC<ProjectProps> = ({ children }) => {
                 justifyContent="start"
                 flexGridRowGap="8px"
               >
-                <IconLink icon={<StarIcon size={16} />}>{data.stargazers_count}</IconLink>
-                <IconLink icon={<ForkIcon size={16} />}>{data.forks_count}</IconLink>
-                <IconLink icon={<EyeIcon size={16} />}>{data.watchers_count}</IconLink>
+                <IconLink icon={<StarIcon size={16} />}>
+                  {data.stargazers_count}
+                </IconLink>
+                <IconLink icon={<ForkIcon size={16} />}>
+                  {data.forks_count}
+                </IconLink>
+                <IconLink icon={<EyeIcon size={16} />}>
+                  {data.watchers_count}
+                </IconLink>
                 <IconLink icon={<IssueIcon size={16} />}>
                   {data.open_issues_count}
                 </IconLink>
@@ -122,12 +132,16 @@ const Project: React.FC<ProjectProps> = ({ children }) => {
               <IconLink icon={<GitHubIcon size={16} />}>GitHub</IconLink>
             </Link>
             <Link href="#">
-              <IconLink icon={<StarIcon size={16} color={theme.colors.accent} />}>
+              <IconLink
+                icon={<GuidelineIcon size={16} color={theme.colors.accent} />}
+              >
                 <Highlight>.design</Highlight> guidelines
               </IconLink>
             </Link>
             <Link href="#">
-              <IconLink icon={<LinkIcon size={16} />}>Website</IconLink>
+              <IconLink marginRight="0" icon={<LinkIcon size={16} />}>
+                Website
+              </IconLink>
             </Link>
           </Grid>
         </GridItem>
