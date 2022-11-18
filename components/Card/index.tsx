@@ -55,12 +55,30 @@ const Card: React.FC<CardProps> = ({
   return (
     <motion.div
       style={{ height: fullHeight ? '100%' : undefined }}
-      whileHover={{ scale: hover ? 1.03 : 1 }}
+      whileHover={{ scale: hover ? 1.05 : 1 }}
     >
       {before}
       <BaseCard
         title={title}
         overrides={{
+          Root: {
+            style: ({ $theme }) => {
+              return {
+                transitionProperty: 'border, background',
+                transitionDuration: '200ms',
+                transitionTimingFunction: $theme.animation.easeOutQuinticCurve,
+                borderRadius: '12px',
+                borderWidth: '1px',
+                backgroundColor: $theme.colors.backgroundPrimary,
+                ':hover': {
+                  // backgroundColor: $theme.colors.primaryB,
+                  // borderColor: $theme.colors.primary,
+                  borderColor: $theme.colors.contentSecondary,
+                },
+                padding: padded ? '8px' : undefined,
+              }
+            },
+          },
           HeaderImage: {
             style: () => {
               return {

@@ -1,13 +1,18 @@
 import { createDarkTheme, darkThemePrimitives, Primitives, Theme } from 'baseui'
 
 const colors = {
+  white: '#ffffff',
   rose600: '#E11D48',
+  gray300: '#D1D5DB',
+  gray400: '#9CA3AF',
+  gray500: '#6B7280',
 }
 
 const primitives: Primitives = {
   ...darkThemePrimitives,
-  primaryFontFamily: 'Inria Sans, Helvetica Neue, Helvetica',
+  primaryFontFamily: 'Roboto, Helvetica Neue, Helvetica',
 
+  primary: colors.white,
   accent: colors.rose600,
 }
 
@@ -19,15 +24,22 @@ const CustomTheme: Theme = createDarkTheme(
   {
     borders: {
       buttonBorderRadius: '4px',
+      surfaceBorderRadius: '4px',
+      tagBorderRadius: '4px',
     },
     colors: {
+      backgroundPrimary: '#000',
+      contentPrimary: colors.gray300,
+      contentSecondary: colors.gray400,
+      contentTertiary: colors.gray500,
+
       buttonPrimaryFill: colors.rose600,
-      buttonPrimaryText: '#fff',
+      buttonPrimaryText: colors.white,
       buttonPrimaryHover: '#000',
       buttonPrimaryActive: colors.rose600,
 
       buttonSecondaryFill: '#000',
-      buttonSecondaryText: '#aaa',
+      buttonSecondaryText: colors.gray400,
       buttonSecondaryHover: '#000',
       buttonSecondaryActive: colors.rose600,
     },
@@ -42,7 +54,7 @@ const CustomTheme: Theme = createDarkTheme(
       },
       ParagraphLarge: {
         fontSize: '20px',
-        lineHeight: '28px',
+        lineHeight: '30px',
       },
       ParagraphMedium: {
         fontSize: '14px',

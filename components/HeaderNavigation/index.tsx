@@ -12,6 +12,8 @@ import { useRouter } from 'next/router'
 
 import Logo from '../Logo'
 import NavigationLink from '../NavigationLink'
+import { GitHubIcon, TwitterIcon } from '../Icon'
+import ContentWrapper from '../ContentWrapper'
 
 const navLinks = [
   { title: 'For developers', path: '/for-developers' },
@@ -20,11 +22,15 @@ const navLinks = [
 ]
 const socialLinks = [
   {
-    icon: false,
+    icon: <GitHubIcon size={20} />,
     title: 'GitHub',
-    path: 'https://github.com/contribute_design',
+    path: 'https://github.com/contribute-design',
   },
-  { icon: false, title: 'Twitter', path: 'https://twitter.com/contrib_design' },
+  {
+    icon: <TwitterIcon size={20} style={{ marginLeft: 8 }} />,
+    title: 'Twitter',
+    path: 'https://twitter.com/contrib_design',
+  },
 ]
 
 const HeaderNavigation = () => {
@@ -32,48 +38,71 @@ const HeaderNavigation = () => {
   const router = useRouter()
 
   return (
-    <BaseHeaderNavigation
-      overrides={{
-        Root: {
-          style: () => ({
-            paddingTop: '40px',
-            paddingRight: '40px',
-            paddingBottom: '40px',
-            paddingLeft: '16px',
-            backgroundColor: theme.colors.black,
-          }),
-        },
-      }}
+    <div
+      className={css({
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'center',
+      })}
     >
-      <StyledNavigationList $align={ALIGN.left}>
-        <StyledNavigationItem>
-          <Link href="/">
-            <Logo />
-          </Link>
-        </StyledNavigationItem>
-      </StyledNavigationList>
-      <StyledNavigationList $align={ALIGN.center} />
-      <StyledNavigationList $align={ALIGN.right}>
-        {navLinks.map((link) => (
-          <StyledNavigationItem key={link.title}>
-            <NavigationLink
-              href={link.path}
-              active={router.pathname === link.path}
-            >
-              {link.title}
-            </NavigationLink>
-          </StyledNavigationItem>
-        ))}
-      </StyledNavigationList>
-      <StyledNavigationList $align={ALIGN.right}>
-        <StyledNavigationItem>
-          <StyledLink href="#basic-link1">GitHub</StyledLink>
-        </StyledNavigationItem>
-        <StyledNavigationItem>
-          <StyledLink href="#basic-link2">Twitter</StyledLink>
-        </StyledNavigationItem>
-      </StyledNavigationList>
-    </BaseHeaderNavigation>
+      <div className={css({ maxWidth: '1400px', width: '100%' })}>
+        <BaseHeaderNavigation
+          overrides={{
+            Root: {
+              style: () => ({
+                paddingTop: '40px',
+                paddingRight: '40px',
+                paddingBottom: '40px',
+                paddingLeft: '16px',
+                backgroundColor: theme.colors.black,
+                borderBottom: 'none',
+                '@media (max-width: 600px)': {
+                  paddingTop: '20px',
+                  paddingRight: '20px',
+                  paddingBottom: '20px',
+                  paddingLeft: '0',
+                },
+              }),
+            },
+          }}
+        >
+          <StyledNavigationList $align={ALIGN.left}>
+            <StyledNavigationItem>
+              <Link href="/">
+                <Logo />
+              </Link>
+            </StyledNavigationItem>
+          </StyledNavigationList>
+          <StyledNavigationList $align={ALIGN.center} />
+          <StyledNavigationList
+            $align={ALIGN.right}
+            className={css({
+              '@media (max-width: 600px)': {
+                display: 'none',
+              },
+            })}
+          >
+            {navLinks.map((link) => (
+              <StyledNavigationItem key={link.title}>
+                <NavigationLink
+                  href={link.path}
+                  active={router.pathname === link.path}
+                >
+                  {link.title}
+                </NavigationLink>
+              </StyledNavigationItem>
+            ))}
+          </StyledNavigationList>
+          <StyledNavigationList $align={ALIGN.right}>
+            {socialLinks.map((link) => (
+              <NavigationLink key={link.title} href={link.path} target="_blank">
+                {link.icon}
+              </NavigationLink>
+            ))}
+          </StyledNavigationList>
+        </BaseHeaderNavigation>
+      </div>
+    </div>
   )
 }
 

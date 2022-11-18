@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import EmptyPage from '../components/EmptyPage'
 import Meta from '../components/Meta'
@@ -10,6 +11,8 @@ import ContentWrapper from '../components/ContentWrapper'
 import Highlight from '../components/Highlight'
 import Intro from '../components/Intro'
 import { Grid, GridItem } from '../components/Grid'
+import ProjectList from '../components/ProjectList'
+import TweetList from '../components/TweetList'
 
 export default function Home() {
   return (
@@ -17,7 +20,7 @@ export default function Home() {
       <Meta title="./design – design contributions to open source projects made easy" />
       {process.env.NEXT_PUBLIC_ENABLE_SITE_PREVIEW ? (
         <>
-          <Intro paddingBottom="0">
+          <Intro paddingBottom={['12vh', '12vh', '8vh']}>
             <Image
               src="/images/badge.svg"
               alt=".design/"
@@ -25,28 +28,41 @@ export default function Home() {
               height={41}
               style={{ alignSelf: 'center' }}
             />
-            <Title
-              size="xl"
-              align="center"
-              style={{ paddingTop: 0, paddingBottom: 0 }}
+            <GridItem
+              paddingLeft={[0, '60px', '10%', '20%']}
+              paddingRight={[0, '60px', '10%', '20%']}
             >
-              OpenSource <Highlight>&</Highlight> Design{' '}
-              <Highlight>collaboration</Highlight> made easy
-            </Title>
+              <Title
+                size="xl"
+                align="center"
+                style={{ paddingTop: 0, paddingBottom: 0 }}
+              >
+                OpenSource <Highlight>&</Highlight> Design{' '}
+                <Highlight>collaboration</Highlight> made easy
+              </Title>
+            </GridItem>
             <Paragraph size="xl" align="center">
               <strong>
                 ​All through a simple, yet powerful folder in your project.
               </strong>
             </Paragraph>
             <ButtonGroup justifyContent="center">
-              <Button type="primary">For developers</Button>
-              <Button type="secondary">For designers</Button>
+              <Link href="/for-developers">
+                <Button type="primary" $as="span">
+                  For developers
+                </Button>
+              </Link>
+              <Link href="/for-designers">
+                <Button type="secondary" $as="span">
+                  For designers
+                </Button>
+              </Link>
             </ButtonGroup>
           </Intro>
 
-          <Intro paddingTop="8vh">
+          <Intro paddingTop={['4vh', '4vh', '8vh']}>
             <Grid flexGridColumnCount={[1, 1, 2]} flexDirection="row-reverse">
-              <GridItem>
+              <GridItem paddingTop={[0, 0, '12vw']} paddingBottom="12vw">
                 <Title size="l">
                   For <Highlight>developers</Highlight>
                 </Title>
@@ -58,23 +74,25 @@ export default function Home() {
                   </strong>
                 </Paragraph>
                 <ButtonGroup>
-                  <Button>Enable designers to collaborate</Button>
+                  <Link href="/for-developers">
+                    <Button $as="span">Enable designers to collaborate</Button>
+                  </Link>
                 </ButtonGroup>
               </GridItem>
-              <GridItem>
+              <GridItem position="relative">
                 <Image
                   src="/images/design.tree.svg"
                   alt="a .design/ folder in your repository"
-                  width={286}
-                  height={487}
+                  fill
+                  objectFit="contain"
                 />
               </GridItem>
             </Grid>
           </Intro>
 
-          <Intro>
+          <Intro paddingTop={['4vh', '4vh', '8vh']}>
             <Grid flexGridColumnCount={[1, 1, 2]} flexDirection="row">
-              <GridItem>
+              <GridItem paddingTop={[0, 0, '4vw']} paddingBottom="4vw">
                 <Title size="l">
                   For <Highlight>designers</Highlight>
                 </Title>
@@ -90,38 +108,53 @@ export default function Home() {
                   </strong>
                 </Paragraph>
                 <ButtonGroup>
-                  <Button>Start contributing</Button>
+                  <Link href="/for-designers">
+                    <Button $as="span">Start contributing</Button>
+                  </Link>
                 </ButtonGroup>
               </GridItem>
-              <GridItem>
+              <GridItem position="relative">
                 <Image
-                  src="/images/shape.svg"
+                  src="/images/shape.design.contribution.png"
                   alt="a sample design contribution"
-                  width={569}
-                  height={379}
+                  fill
+                  objectFit="contain"
                 />
               </GridItem>
             </Grid>
           </Intro>
 
-          <Intro>
-            <Title size="l" align="center">
-              Projects, open to <Highlight>.design</Highlight> contributions
-            </Title>
+          <Intro paddingTop={['12vh', '12vh', '8vh']}>
+            <GridItem
+              paddingLeft={[0, 0, '110px', '320px']}
+              paddingRight={[0, 0, '110px', '320px']}
+            >
+              <Title size="l" align="center">
+                Projects, open to <Highlight>.design</Highlight> contributions
+              </Title>
+            </GridItem>
+            <ProjectList />
             <ButtonGroup justifyContent="center">
-              <Button>See all 2,372 projects</Button>
+              <Link href="/projects">
+                <Button $as="span">See all 2,372 projects</Button>
+              </Link>
             </ButtonGroup>
           </Intro>
 
-          <Intro>
+          <Intro paddingTop={['12vh', '12vh', '8vh']}>
             <Title size="l" align="center">
               <Highlight>Spread</Highlight> the word
             </Title>
             <Paragraph size="xl" align="center">
               Follow us and help us change Open Source for good!
             </Paragraph>
+            <TweetList />
             <ButtonGroup justifyContent="center">
-              <Button type="secondary">Follow us on twitter</Button>
+              <Link href="https://twitter.com/contrib_design" target="_blank">
+                <Button type="secondary" $as="span">
+                  Follow us on twitter
+                </Button>
+              </Link>
             </ButtonGroup>
           </Intro>
         </>

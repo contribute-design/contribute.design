@@ -42,7 +42,9 @@ const Paragraph: React.FC<ParagraphProps> = ({
       {...props}
       overrides={{
         Block: {
-          style: () => ({ textAlign: align !== 'left' ? align : undefined }),
+          style: ({ $theme }) => ({
+            textAlign: align !== 'left' ? align : undefined,
+          }),
         },
       }}
     >

@@ -56,15 +56,20 @@ const Title: React.FC<HeaderProps> = ({
         size === 'xl'
           ? {
               Block: {
-                style: () => {
+                style: ({ $theme }) => {
                   return {
+                    color: $theme.colors.primary,
                     '@media (max-width: 1024px)': {
                       fontSize: '7vw',
                       lineHeight: '7.5vw',
                     },
+                    '@media (max-width: 600px)': {
+                      fontSize: '48px',
+                      lineHeight: '50px',
+                    },
                     '@media (max-width: 480px)': {
-                      fontSize: '32px',
-                      lineHeight: '34px',
+                      fontSize: '40px',
+                      lineHeight: '42px',
                     },
                   }
                 },
@@ -73,15 +78,20 @@ const Title: React.FC<HeaderProps> = ({
           : size === 'l'
           ? {
               Block: {
-                style: () => {
+                style: ({ $theme }) => {
                   return {
+                    color: $theme.colors.primary,
                     '@media (max-width: 1024px)': {
                       fontSize: '5.5vw',
                       lineHeight: '6vw',
                     },
+                    '@media (max-width: 600px)': {
+                      fontSize: '38px',
+                      lineHeight: '40px',
+                    },
                     '@media (max-width: 480px)': {
-                      fontSize: '28px',
-                      lineHeight: '30px',
+                      fontSize: '34px',
+                      lineHeight: '36px',
                     },
                   }
                 },

@@ -6,8 +6,8 @@ export interface IntroProps extends GridProps {
 
 const Intro: React.FC<IntroProps> = ({
   children,
-  paddingTop = '12vh',
-  paddingBottom = '12vh',
+  paddingTop = ['4vh', '4vh', '12vh'],
+  paddingBottom = ['4vh', '4vh', '12vh'],
 }) => {
   return (
     <Grid paddingTop={paddingTop} paddingBottom={paddingBottom}>
