@@ -21,7 +21,6 @@ const primitives: Primitives = {
 const CustomTheme: Theme = createDarkTheme(
   {
     ...primitives,
-    // primaryFontFamily: '', // You can add your custom font here
   },
   {
     borders: {

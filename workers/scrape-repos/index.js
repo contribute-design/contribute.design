@@ -63,6 +63,21 @@ async function handleSchedule(scheduledDate) {
             project && metadata.createdAt ? metadata.createdAt : new Date(),
           lasUpdatedAt: new Date(),
           hasDesign: hasDesign,
+          full_name: projectData.full_name,
+          description: projectData.description,
+          owner: {
+            login: projectData.owner.login,
+            avatar_url: projectData.owner.avatar_url,
+            url: projectData.owner.url,
+          },
+          homepage: projectData.homepage,
+          stargazers_count: projectData.stargazers_count,
+          watchers_count: projectData.watchers_count,
+          open_issues_count: projectData.open_issues_count,
+          forks_count: projectData.forks_count,
+          subscribers_count: projectData.subscribers_count,
+          language: projectData.language,
+          last_contribution: projectData.pushed_at,
         },
       })
       await PROJECT_CHECKS.delete(projectCheck.name)

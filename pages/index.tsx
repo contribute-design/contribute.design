@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import useSWR from 'swr'
 
 import EmptyPage from '../components/EmptyPage'
 import Meta from '../components/Meta'
@@ -21,7 +22,12 @@ import {
   IndexDevelopersMobile,
 } from '../components/ContentItems'
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
+const project_url = '/api/projects?limit=6'
+
 export default function Home() {
+  const { data, error } = useSWR(project_url, fetcher)
+
   return (
     <ContentWrapper>
       <Meta title="./design – design contributions to open source projects made easy" />
@@ -94,7 +100,15 @@ export default function Home() {
                 Projects, open to <Highlight>.design</Highlight> contributions
               </Title>
             </GridItem>
-            <ProjectList />
+
+            {error ? (
+              <Highlight>An error has occurred.</Highlight>
+            ) : !data ? (
+              <Paragraph>Loading</Paragraph>
+            ) : (
+              <ProjectList data={data} />
+            )}
+
             <ButtonGroup justifyContent="center">
               <Link href="/projects">
                 <Button $as="span">See all 2,372 projects</Button>

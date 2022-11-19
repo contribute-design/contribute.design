@@ -35,6 +35,7 @@ export interface Project {
 
 export interface ProjectProps {
   children?: React.ReactNode
+  data: Project
   'data-testid'?: string
 }
 
@@ -44,15 +45,6 @@ interface IconLinkProps {
   children: React.ReactNode
 }
 
-const data: Project = {
-  full_name: 'kubeshop/testkube',
-  owner: {
-    avatar_url: 'https://avatars.githubusercontent.com/u/17219288?s=200&v=4',
-  },
-  description:
-    '🎙️ The easiest way to explore and manipulate your data in all of your Prisma projects.',
-  stargazers_count: 32,
-}
 
 const IconLink: React.FC<IconLinkProps> = ({ icon, children, marginRight }) => {
   const [css, theme] = useStyletron()
@@ -82,20 +74,20 @@ const IconLink: React.FC<IconLinkProps> = ({ icon, children, marginRight }) => {
   )
 }
 
-const Project: React.FC<ProjectProps> = ({ children }) => {
+const Project: React.FC<ProjectProps> = ({ children, data }) => {
   const [css, theme] = useStyletron()
   return (
     <Card padded hover>
       <Grid>
         <GridItem gridGap="20px">
           <Grid flexDirection="row" flexGridColumnCount={2}>
-            {data.owner?.avatar_url ? (
+            {data?.owner?.avatar_url ? (
               <Link href="#">
                 <img
-                  src={data.owner?.avatar_url}
+                  src={data?.owner?.avatar_url}
                   width={50}
                   height={50}
-                  alt={`${data.owner.login}`}
+                  alt={`${data?.owner.login}`}
                   className={css({ borderRadius: '80px', marginRight: '12px' })}
                 />
               </Link>
@@ -103,7 +95,7 @@ const Project: React.FC<ProjectProps> = ({ children }) => {
             <GridItem alignItems="start" gridGap="4px" width="100%">
               <Paragraph size="l">
                 <Link href="#">
-                  <strong>{data.full_name}</strong>
+                  <strong>{data?.full_name}</strong>
                 </Link>
               </Paragraph>
               <Grid
@@ -112,21 +104,21 @@ const Project: React.FC<ProjectProps> = ({ children }) => {
                 flexGridRowGap="8px"
               >
                 <IconLink icon={<StarIcon size={16} />}>
-                  {data.stargazers_count}
+                  {data?.stargazers_count}
                 </IconLink>
                 <IconLink icon={<ForkIcon size={16} />}>
-                  {data.forks_count}
+                  {data?.forks_count}
                 </IconLink>
                 <IconLink icon={<EyeIcon size={16} />}>
-                  {data.watchers_count}
+                  {data?.watchers_count}
                 </IconLink>
                 <IconLink icon={<IssueIcon size={16} />}>
-                  {data.open_issues_count}
+                  {data?.open_issues_count}
                 </IconLink>
               </Grid>
             </GridItem>
           </Grid>
-          <Paragraph color="contentPrimary">{data.description}</Paragraph>
+          <Paragraph color="contentPrimary">{data?.description}</Paragraph>
           <Grid flexDirection="row" justifyContent="start" flexGridRowGap="8px">
             <Link href="#">
               <IconLink icon={<GitHubIcon size={16} />}>GitHub</IconLink>
