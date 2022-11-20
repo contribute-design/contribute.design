@@ -5,17 +5,18 @@ import { Grid, GridItem } from '../Grid/index'
 
 export interface TweetListProps {
   children?: React.ReactNode
+  narrow?: boolean
   'data-testid'?: string
 }
 
 const data = {}
 
-const TweetList: React.FC<TweetListProps> = ({ children }) => {
+const TweetList: React.FC<TweetListProps> = ({ children, narrow }) => {
   const [css, theme] = useStyletron()
   return (
     <Grid
       flexDirection="row"
-      flexGridColumnCount={[1, 1, 2, 3, 4]}
+      flexGridColumnCount={[1, 1, 2, narrow ? 2 : 3, narrow ? 2 : 4]}
       flexGridColumnGap="40px"
       flexGridRowGap="40px"
       paddingLeft={[0, 0, '2vw', '4vw', '12vw']}
