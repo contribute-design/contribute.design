@@ -5,6 +5,8 @@ import {
   IoIosGitBranch,
 } from 'react-icons/io'
 
+import { RiGitRepositoryCommitsLine } from 'react-icons/ri'
+
 import { BsJournalCheck } from 'react-icons/bs'
 
 import {
@@ -22,4 +24,5 @@ export {
   AiOutlineIssuesClose as IssueIcon,
   AiOutlineLink as LinkIcon,
   BsJournalCheck as GuidelineIcon,
+  RiGitRepositoryCommitsLine as LastCommitIcon
 }
