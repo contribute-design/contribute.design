@@ -48,6 +48,19 @@ async function handleRequest(request) {
         ? new Response(JSON.stringify({ value, metadata }))
         : new Response('404')
     }
+    if (pathname.startsWith('/l')) {
+      console.log('getting', pathname)
+      const limit = pathname.split('/')[2]
+      const cursr = pathname.split('/')[3]
+      let projects = []
+      const { keys, list_complete, cursor } = await PROJECTS.list({
+        limit: limit ? limit : undefined,
+        cursor: cursr ? cursr : undefined,
+      })
+      return keys
+        ? new Response(JSON.stringify({ keys, list_complete, cursor }))
+        : new Response('404')
+    }
 
     console.log('wrong path', pathname)
     return new Response('404')

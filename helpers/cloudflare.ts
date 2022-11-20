@@ -7,7 +7,7 @@ const logEndpoint = (key: string) =>
   `https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/storage/kv/namespaces/${process.env.CLOUDFLARE_NAMESPACE_LOG}/values/${key}`
 
 const projectEndpoint = (key: string) =>
-  `${process.env.PROJECTS_WORKER_URL}/x/${key}`
+  `${process.env.PROJECTS_WORKER_URL}/${key}`
 
 const checkEndpoint = (key: string) =>
   `${process.env.PROJECTS_WORKER_URL}/check/${key}`
@@ -34,11 +34,25 @@ export const addProjectCheck = async ({ key, value }: any) => {
 }
 
 export const getProject = async ({ key }: any) => {
-  const response = await fetch(projectEndpoint(`${key}`), {
+  const response = await fetch(projectEndpoint(`x/${key}`), {
     method: 'GET',
     headers: cloudflareHeaders,
   })
   const result = JSON.parse(await response.text())
   //   console.log('getProject', result)
+  return { result }
+}
+
+export const getProjects = async ({ limit, cursor }: any) => {
+  const response = await fetch(
+    projectEndpoint(
+      `l${limit ? `/${limit}` : ''}${cursor ? `/${cursor}` : ''}`
+    ),
+    {
+      method: 'GET',
+      headers: cloudflareHeaders,
+    }
+  )
+  const result = JSON.parse(await response.text())
   return { result }
 }
