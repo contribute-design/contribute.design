@@ -13,7 +13,6 @@ import { useRouter } from 'next/router'
 import Logo from '../Logo'
 import NavigationLink from '../NavigationLink'
 import { GitHubIcon, TwitterIcon } from '../Icon'
-import ContentWrapper from '../ContentWrapper'
 
 const navLinks = [
   { title: 'For developers', path: '/for-developers' },
@@ -55,7 +54,7 @@ const HeaderNavigation = () => {
                 paddingBottom: '40px',
                 paddingLeft: '16px',
                 backgroundColor: theme.colors.black,
-                borderBottom: 'none',
+                borderBottomWidth: '0px',
                 '@media (max-width: 600px)': {
                   paddingTop: '20px',
                   paddingRight: '20px',

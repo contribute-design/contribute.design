@@ -6,6 +6,7 @@ export interface NavigationLinkProps {
   children?: React.ReactNode
   active?: boolean
   target?: string
+  size?: 'small' | 'default'
   href: string
   'data-testid'?: string
 }
@@ -14,6 +15,7 @@ const NavigationLink: React.FC<NavigationLinkProps> = ({
   children,
   href,
   target,
+  size = 'default',
   active = false,
 }) => {
   const [css, theme] = useStyletron()
@@ -26,8 +28,8 @@ const NavigationLink: React.FC<NavigationLinkProps> = ({
           paddingRight: '4px',
           paddingBottom: '12px',
           paddingLeft: '4px',
-          fontWeight: 700,
-          fontSize: '16px',
+          fontWeight: size === 'default' ? 700 : 300,
+          fontSize: size === 'default' ? '16px' : '13px',
           transitionProperty: 'color',
           transitionDuration: '200ms',
           transitionTimingFunction: theme.animation.easeOutQuinticCurve,

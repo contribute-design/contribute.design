@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
+    "@types/react-copy-to-clipboard": "5.0.4",
     "@types/react-dom": "18.0.8",
     "@types/styletron-engine-atomic": "^1.1.1",
     "@vercel/analytics": "^0.1.5",
@@ -21,8 +22,10 @@
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "framer-motion": "^7.6.7",
+    "framer-motion-scroll-to-hook": "^1.0.1",
     "next": "13.0.3",
     "react": "18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
     "react-string-replace": "^1.1.0",
