@@ -70,7 +70,7 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
             >
               About contribute.design
             </Paragraph>
-            <GridItem gridGap="12px">
+            <GridItem gridGap="12px" justifyContent="flex-start" >
               {aboutLinks.map((link) => (
                 <Paragraph>
                   <NavigationLink
@@ -92,7 +92,7 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
             >
               Discover projects
             </Paragraph>
-            <GridItem gridGap="12px">
+            <GridItem gridGap="12px" justifyContent="flex-start" >
               {projectLinks.map((link) => (
                 <Paragraph>
                   <NavigationLink
@@ -114,7 +114,7 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
             >
               Where to find us
             </Paragraph>
-            <GridItem gridGap="12px">
+            <GridItem gridGap="12px" justifyContent="flex-start" >
               {socialLinks.map((link) => (
                 <Paragraph>
                   <NavigationLink
@@ -129,7 +129,7 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
               ))}
             </GridItem>
           </GridItem>
-          <GridItem justifyContent="start" flexDirection="column">
+          <GridItem justifyContent="flex-start" flexDirection="column">
             <Paragraph
               size="s"
               style={{ textTransform: 'uppercase' }}

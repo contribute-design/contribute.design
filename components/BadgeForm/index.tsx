@@ -9,7 +9,7 @@ import Paragraph from '../Paragraph'
 import Button from '../Button'
 import Code from '../Code'
 import { Block } from '../Block'
-import { Spinner } from '../Spinner'
+import Spinner from '../Spinner'
 import { CheckIcon } from '../Icon'
 
 export interface BadgeFormProps extends BlockProps {

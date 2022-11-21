@@ -21,6 +21,7 @@ import {
   IndexDevelopers,
   IndexDevelopersMobile,
 } from '../components/ContentItems'
+import Spinner from '../components/Spinner'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 const project_url = '/api/projects?limit=6'
@@ -102,9 +103,19 @@ export default function Home() {
             </GridItem>
 
             {error ? (
-              <Highlight>An error has occurred.</Highlight>
+              <Paragraph align="center">
+                <Highlight>Woooops.</Highlight> Something has gone terribly
+                bad... Don't worry though – we've received an error report and
+                will make sure to fix this issue. Feel free to still{' '}
+                <Link href="https://twitter.com/contrib_design" target="_blank">
+                  reach out to us
+                </Link>{' '}
+                in the mean time.
+              </Paragraph>
             ) : !data ? (
-              <Paragraph>Loading</Paragraph>
+              <GridItem alignContent="center">
+                <Spinner />
+              </GridItem>
             ) : (
               <ProjectList data={data} />
             )}
