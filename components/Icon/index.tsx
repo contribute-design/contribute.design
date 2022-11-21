@@ -3,6 +3,7 @@ import {
   IoLogoTwitter,
   IoIosStarOutline,
   IoIosGitBranch,
+  IoIosCheckmark,
 } from 'react-icons/io'
 
 import { RiGitRepositoryCommitsLine } from 'react-icons/ri'
@@ -15,6 +16,8 @@ import {
   AiOutlineLink,
 } from 'react-icons/ai'
 
+import { FiFigma } from 'react-icons/fi'
+
 export {
   IoLogoGithub as GitHubIcon,
   IoLogoTwitter as TwitterIcon,
@@ -24,5 +27,7 @@ export {
   AiOutlineIssuesClose as IssueIcon,
   AiOutlineLink as LinkIcon,
   BsJournalCheck as GuidelineIcon,
-  RiGitRepositoryCommitsLine as LastCommitIcon
+  RiGitRepositoryCommitsLine as LastCommitIcon,
+  FiFigma as FigmaIcon,
+  IoIosCheckmark as CheckIcon,
 }

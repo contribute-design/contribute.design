@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BlockProps } from 'baseui/block'
 import { useStyletron } from 'baseui'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import { Grid, GridItem } from '../Grid/index'
 import Input from '../Input'
@@ -9,6 +10,7 @@ import Button from '../Button'
 import Code from '../Code'
 import { Block } from '../Block'
 import { Spinner } from '../Spinner'
+import { CheckIcon } from '../Icon'
 
 export interface BadgeFormProps extends BlockProps {
   'data-testid'?: string
@@ -23,9 +25,21 @@ const BadgeForm: React.FC<BadgeFormProps> = ({
   const [css, theme] = useStyletron()
   const [badgeIsLoaded, setBadgeIsLoaded] = useState(false)
   const [badgeIsLoading, setBadgeIsLoading] = useState(false)
+  const [codeCopied, setCodeCopied] = useState(false)
   const [error, setError] = useState('')
   const [repoUrl, setRepoUrl] = useState('')
   const [imagePath, setImagePath] = useState('/images/badge.pending.svg')
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCodeCopied(false)
+    }, 2000)
+
+    return () => {
+      // clears timeout before running the new effect
+      clearTimeout(timeout)
+    }
+  }, [codeCopied])
 
   const checkInput = (content: string) => {
     const regex = /(?:https:\/\/)github.com[:/](.*)[:/](.*)/g
@@ -151,6 +165,14 @@ const BadgeForm: React.FC<BadgeFormProps> = ({
                       'Ready to copy & paste once you create your badge'
                     )}
                   </Code>
+                  <CopyToClipboard
+                    text={`[![contribute.design](https://contribute.design/api/shield/${repoUrl})](https://contribute.design/project/${repoUrl})`}
+                    onCopy={() => setCodeCopied(true)}
+                  >
+                    <Button onClick={() => {}} type="secondary">
+                      {codeCopied ? <CheckIcon size={22} /> : 'Copy'}
+                    </Button>
+                  </CopyToClipboard>
                 </GridItem>
               </Grid>
             </>

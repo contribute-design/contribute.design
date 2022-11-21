@@ -13,7 +13,6 @@ import { useRouter } from 'next/router'
 import Logo from '../Logo'
 import NavigationLink from '../NavigationLink'
 import { GitHubIcon, TwitterIcon } from '../Icon'
-import ContentWrapper from '../ContentWrapper'
 
 const navLinks = [
   { title: 'For developers', path: '/for-developers' },
