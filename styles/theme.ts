@@ -3,9 +3,12 @@ import { createDarkTheme, darkThemePrimitives, Primitives, Theme } from 'baseui'
 const colors = {
   white: '#ffffff',
   rose600: '#E11D48',
+  rose900: '#881337',
   gray300: '#D1D5DB',
   gray400: '#9CA3AF',
   gray500: '#6B7280',
+  gray800: '#1F2937',
+  gray900: '#111827',
 }
 
 const primitives: Primitives = {
@@ -16,6 +19,7 @@ const primitives: Primitives = {
 
   primary: colors.white,
   accent: colors.rose600,
+  negative: colors.rose600,
 }
 
 const CustomTheme: Theme = createDarkTheme(
@@ -25,6 +29,7 @@ const CustomTheme: Theme = createDarkTheme(
   {
     borders: {
       buttonBorderRadius: '4px',
+      inputBorderRadius: '4px',
       surfaceBorderRadius: '4px',
       tagBorderRadius: '4px',
     },
@@ -33,6 +38,15 @@ const CustomTheme: Theme = createDarkTheme(
       contentPrimary: colors.gray300,
       contentSecondary: colors.gray400,
       contentTertiary: colors.gray500,
+      backgroundTertiary: colors.gray800,
+      backgroundSecondary: colors.gray900,
+
+      inputFill: colors.gray900,
+      inputFillActive: colors.gray800,
+      inputFillError: `${colors.rose900}30`,
+      inputBorder: colors.gray800,
+      inputBorderError: colors.rose600,
+      inputPlaceholder: colors.gray500,
 
       buttonPrimaryFill: colors.rose600,
       buttonPrimaryText: colors.white,

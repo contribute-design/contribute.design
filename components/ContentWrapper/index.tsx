@@ -20,6 +20,7 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
           maxWidth={maxWidth}
           paddingLeft={['10px', '20px', '6vw']}
           paddingRight={['10px', '20px', '6vw']}
+          width="100%"
         >
           <FlexGridItem
             justifyContent="center"

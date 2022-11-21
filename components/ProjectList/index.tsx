@@ -11,7 +11,7 @@ export interface ProjectListProps {
 
 const ProjectList: React.FC<ProjectListProps> = ({ data, children }) => {
   const [css, theme] = useStyletron()
-  console.log('projcets', data)
+  // console.log('projcets', data)
   return (
     <Grid
       flexDirection="row"

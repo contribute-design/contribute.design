@@ -55,7 +55,7 @@ const HeaderNavigation = () => {
                 paddingBottom: '40px',
                 paddingLeft: '16px',
                 backgroundColor: theme.colors.black,
-                borderBottom: 'none',
+                borderBottomWidth: '0px',
                 '@media (max-width: 600px)': {
                   paddingTop: '20px',
                   paddingRight: '20px',

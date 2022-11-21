@@ -15,6 +15,7 @@ import { Block } from '../components/Block'
 import TweetList from '../components/TweetList'
 import { Grid } from '../components/Grid/index'
 import Step from '../components/Step'
+import BadgeForm from '../components/BadgeForm'
 
 export default function Home() {
   return (
@@ -97,7 +98,10 @@ export default function Home() {
               materials.
             </Paragraph>
             <ButtonGroup justifyContent="center">
-              <Link href="/for-developers">
+              <Link
+                href="https://github.com/contribute-design/examples"
+                target="_blank"
+              >
                 <Button type="primary" $as="span">
                   Discover best practices
                 </Button>
@@ -107,7 +111,7 @@ export default function Home() {
 
           <Intro paddingTop={['12vh', '12vh', '8vh']}>
             <Grid flexGridColumnCount={[1, 1, 2]} flexDirection="row-reverse">
-              <GridItem>
+              <GridItem paddingLeft="2vw">
                 <Title size="m">
                   <Step>2</Step>
                 </Title>
@@ -139,13 +143,16 @@ export default function Home() {
                   fill
                   objectFit="contain"
                 />
+                <div style={{ position: 'relative', zIndex: 99 }}>
+                  <BadgeForm />
+                </div>
               </GridItem>
             </Grid>
           </Intro>
 
           <Intro paddingTop={['12vh', '12vh', '8vh']}>
             <Grid flexGridColumnCount={[1, 1, 2]} flexDirection="row">
-              <GridItem>
+              <GridItem paddingRight="2vw">
                 <Title size="m">
                   <Step>3</Step>
                 </Title>
@@ -163,7 +170,7 @@ export default function Home() {
                   will make sure to re-tweet and spread the word! ​
                 </Paragraph>
                 <ButtonGroup>
-                  <Link href="/#">
+                  <Link href="https://twitter.com/home?status=@contrib_design" target="_blank">
                     <Button type="primary" $as="span">
                       Tweet about your project
                     </Button>
