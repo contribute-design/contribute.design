@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useScrollTo } from 'framer-motion-scroll-to-hook'
 
 import EmptyPage from '../components/EmptyPage'
 import Meta from '../components/Meta'
@@ -11,13 +12,13 @@ import ContentWrapper from '../components/ContentWrapper'
 import Highlight from '../components/Highlight'
 import Intro from '../components/Intro'
 import { GridItem } from '../components/Grid'
-import { Block } from '../components/Block'
 import TweetList from '../components/TweetList'
 import { Grid } from '../components/Grid/index'
 import Step from '../components/Step'
 import BadgeForm from '../components/BadgeForm'
 
 export default function Home() {
+  const scrollTo = useScrollTo()
   return (
     <ContentWrapper>
       <Meta title="developers – design contributions to open source projects made easy" />
@@ -56,11 +57,13 @@ export default function Home() {
                   </strong>
                 </Paragraph>
                 <ButtonGroup>
-                  <Link href="/#">
-                    <Button type="primary" $as="span">
-                      Enable designers to collaborate
-                    </Button>
-                  </Link>
+                  <Button
+                    type="primary"
+                    onClick={() => scrollTo(document.querySelector('#start'))}
+                  >
+                    Enable designers to collaborate
+                  </Button>
+
                   <Link
                     href="https://github.com/contribute-design/examples"
                     target="_blank"
@@ -81,7 +84,7 @@ export default function Home() {
               </GridItem>
             </Grid>
           </Intro>
-
+          <a id="start"></a>
           <Intro paddingTop={['4vh', '4vh', '8vh']}>
             <Title size="m" align="center">
               <Step>1</Step>
@@ -170,7 +173,10 @@ export default function Home() {
                   will make sure to re-tweet and spread the word! ​
                 </Paragraph>
                 <ButtonGroup>
-                  <Link href="https://twitter.com/home?status=@contrib_design" target="_blank">
+                  <Link
+                    href="https://twitter.com/home?status=@contrib_design"
+                    target="_blank"
+                  >
                     <Button type="primary" $as="span">
                       Tweet about your project
                     </Button>

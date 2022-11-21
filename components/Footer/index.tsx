@@ -47,7 +47,7 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
   return (
     <>
       <Intro>
-        <Paragraph size="m" align="center" color="contentTertiary">
+        <Paragraph size="s" align="center" color="contentTertiary">
           Made with ❤️ by designers &amp; developers for developers & designers
         </Paragraph>
       </Intro>
@@ -70,14 +70,10 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
             >
               About contribute.design
             </Paragraph>
-            <GridItem gridGap="12px" justifyContent="flex-start" >
+            <GridItem gridGap="12px" justifyContent="flex-start">
               {aboutLinks.map((link) => (
-                <Paragraph>
-                  <NavigationLink
-                    size="small"
-                    key={link.title}
-                    href={link.path}
-                  >
+                <Paragraph key={link.title}>
+                  <NavigationLink size="small" href={link.path}>
                     {link.title}
                   </NavigationLink>
                 </Paragraph>
@@ -92,14 +88,10 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
             >
               Discover projects
             </Paragraph>
-            <GridItem gridGap="12px" justifyContent="flex-start" >
+            <GridItem gridGap="12px" justifyContent="flex-start">
               {projectLinks.map((link) => (
-                <Paragraph>
-                  <NavigationLink
-                    size="small"
-                    key={link.title}
-                    href={link.path}
-                  >
+                <Paragraph key={link.title}>
+                  <NavigationLink size="small" href={link.path}>
                     {link.title}
                   </NavigationLink>
                 </Paragraph>
@@ -114,15 +106,10 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
             >
               Where to find us
             </Paragraph>
-            <GridItem gridGap="12px" justifyContent="flex-start" >
+            <GridItem gridGap="12px" justifyContent="flex-start">
               {socialLinks.map((link) => (
-                <Paragraph>
-                  <NavigationLink
-                    size="small"
-                    key={link.title}
-                    href={link.path}
-                    target="_blank"
-                  >
+                <Paragraph key={link.title}>
+                  <NavigationLink size="small" href={link.path} target="_blank">
                     {link.title}
                   </NavigationLink>
                 </Paragraph>
@@ -149,7 +136,9 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
                 />
               </Block>
               <Block display="flex" flex="0 0 auto">
-                <Button onClick={() => {}} type="secondary">Sign up</Button>
+                <Button onClick={() => {}} type="secondary">
+                  Sign up
+                </Button>
               </Block>
             </Block>
           </GridItem>

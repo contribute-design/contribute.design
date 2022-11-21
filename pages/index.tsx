@@ -105,8 +105,8 @@ export default function Home() {
             {error ? (
               <Paragraph align="center">
                 <Highlight>Woooops.</Highlight> Something has gone terribly
-                bad... Don't worry though – we've received an error report and
-                will make sure to fix this issue. Feel free to still{' '}
+                bad... Don&apos;t worry though – we&apos;ve received an error
+                report and will make sure to fix this issue. Feel free to still{' '}
                 <Link href="https://twitter.com/contrib_design" target="_blank">
                   reach out to us
                 </Link>{' '}
