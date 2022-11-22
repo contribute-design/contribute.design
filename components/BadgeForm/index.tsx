@@ -138,11 +138,15 @@ const BadgeForm: React.FC<BadgeFormProps> = ({
                   {badgeIsLoading ? (
                     <Spinner />
                   ) : (
-                    <img
-                      src={imagePath}
-                      width={badgeIsLoaded ? (error ? '94px' : '106') : '107px'}
-                      height="auto"
-                    />
+                    <Code>
+                      <img
+                        src={imagePath}
+                        width={
+                          badgeIsLoaded ? (error ? '94px' : '106') : '107px'
+                        }
+                        height="auto"
+                      />
+                    </Code>
                   )}
                 </GridItem>
               </Grid>
@@ -160,13 +164,13 @@ const BadgeForm: React.FC<BadgeFormProps> = ({
                     {badgeIsLoading ? (
                       <Spinner />
                     ) : badgeIsLoaded ? (
-                      `[![contribute.design](https://contribute.design/api/shield/${repoUrl})](https://contribute.design/project/${repoUrl})`
+                      `[![contribute.design](https://contribute.design/api/shield/${repoUrl})](https://contribute.design/${repoUrl})`
                     ) : (
                       'Ready to copy & paste once you create your badge'
                     )}
                   </Code>
                   <CopyToClipboard
-                    text={`[![contribute.design](https://contribute.design/api/shield/${repoUrl})](https://contribute.design/project/${repoUrl})`}
+                    text={`[![contribute.design](https://contribute.design/api/shield/${repoUrl})](https://contribute.design/${repoUrl})`}
                     onCopy={() => setCodeCopied(true)}
                   >
                     <Button onClick={() => {}} type="secondary">

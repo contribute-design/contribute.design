@@ -19,6 +19,7 @@ async function gatherResponse(response) {
 const headers = {
   headers: {
     'user-agent': 'cfw',
+    Authorization: `Bearer ${GITHUB_TOKEN}`,
   },
 }
 

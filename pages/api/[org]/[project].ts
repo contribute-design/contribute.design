@@ -1,5 +1,6 @@
 import type { NextRequest } from 'next/server'
 import { getProject } from '../../../helpers/cloudflare'
+import { checkDesignInRepo } from '../../../helpers/github'
 
 export const config = {
   runtime: 'experimental-edge',
@@ -13,6 +14,18 @@ export default async function handler(req: NextRequest) {
   const project = searchParams.get('project')
 
   const parsedProject = await getProject({ key: `${org}/${project}` })
+  const gitHubDesignContent = await checkDesignInRepo({ org, project })
 
-  return parsedProject
+  const result = { result: parsedProject.result, design: gitHubDesignContent }
+
+  return new Response(
+    parsedProject ? JSON.stringify(result) : '{error:404}',
+    {
+      status: parsedProject ? 200 : 404,
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'public, s-maxage=36000, stale-while-revalidate=18000',
+      },
+    }
+  )
 }

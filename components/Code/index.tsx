@@ -19,6 +19,10 @@ const Code: React.FC<CodeProps> = ({ children, color }) => {
         // borderColor: theme.colors.borderOpaque,
         backgroundColor: theme.colors.backgroundSecondary,
         padding: '12px',
+        borderTopLeftRadius: '4px',
+        borderTopRightRadius: '4px',
+        borderBottomRightRadius: '4px',
+        borderBottomLeftRadius: '4px',
       })}
     >
       {children}

@@ -24,7 +24,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ data, children }) => {
       {data &&
         data.keys.map((project: any, i: number) => {
           return (
-            <GridItem key={i}>
+            <GridItem key={i} height="fit-content">
               <Project data={project.metadata} />
             </GridItem>
           )
