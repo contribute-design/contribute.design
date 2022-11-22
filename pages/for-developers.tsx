@@ -174,7 +174,7 @@ export default function Home() {
                 </Paragraph>
                 <ButtonGroup>
                   <Link
-                    href="https://twitter.com/home?status=@contrib_design"
+                    href="https://twitter.com/intent/tweet?url=@contrib_design"
                     target="_blank"
                   >
                     <Button type="primary" $as="span">

@@ -54,7 +54,7 @@ const Card: React.FC<CardProps> = ({
   )
   return (
     <motion.div
-      style={{ height: fullHeight ? '100%' : undefined }}
+      style={{ height: fullHeight ? 'fit-content' : undefined }}
       whileHover={{ scale: hover ? 1.05 : 1 }}
     >
       {before}
@@ -75,6 +75,7 @@ const Card: React.FC<CardProps> = ({
                 borderRightWidth: '1px',
                 borderBottomWidth: '1px',
                 borderLeftWidth: '1px',
+                height: fullHeight ? '100%' : undefined,
                 backgroundColor: $theme.colors.backgroundPrimary,
                 ':hover': {
                   backgroundColor: hover ? '#111' : undefined,

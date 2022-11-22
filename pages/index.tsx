@@ -103,15 +103,26 @@ export default function Home() {
             </GridItem>
 
             {error ? (
-              <Paragraph align="center">
-                <Highlight>Woooops.</Highlight> Something has gone terribly
-                bad... Don&apos;t worry though – we&apos;ve received an error
-                report and will make sure to fix this issue. Feel free to still{' '}
-                <Link href="https://twitter.com/contrib_design" target="_blank">
-                  reach out to us
-                </Link>{' '}
-                in the mean time.
-              </Paragraph>
+              <>
+                <Title size="m" align="center">
+                  <Highlight>Woooops.</Highlight>
+                </Title>
+                <Paragraph align="center">
+                  Something has gone terribly bad... Don&apos;t worry though
+                  – we&apos;ve received an error report and will make sure to
+                  fix this issue.
+                </Paragraph>
+                <Paragraph align="center">
+                  Feel free to still{' '}
+                  <Link
+                    href="https://twitter.com/contrib_design"
+                    target="_blank"
+                  >
+                    <Highlight>reach out to us</Highlight>
+                  </Link>{' '}
+                  in the mean time.
+                </Paragraph>
+              </>
             ) : !data ? (
               <GridItem alignContent="center">
                 <Spinner />

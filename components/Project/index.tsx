@@ -89,7 +89,7 @@ const Project: React.FC<ProjectProps> = ({ children, data }) => {
   const [css, theme] = useStyletron()
   return (
     <Link href={`https://github.com/${data.full_name}`} target="_blank">
-      <Card padded hover>
+      <Card padded hover fullHeight>
         <Grid>
           <GridItem gridGap="20px">
             <Grid flexDirection="row" flexGridColumnCount={2}>
@@ -174,7 +174,11 @@ const Project: React.FC<ProjectProps> = ({ children, data }) => {
                 </IconLink>
               </Link>
               {data.homepage && (
-                <Link href={data.homepage} target="_blank">
+                <Link
+                  href={data.homepage}
+                  target="_blank"
+                  className={css({ height: '100%' })}
+                >
                   <IconLink marginRight="0" icon={<LinkIcon size={16} />}>
                     Website
                   </IconLink>
