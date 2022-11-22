@@ -4,6 +4,7 @@ import {
   IoIosStarOutline,
   IoIosGitBranch,
   IoIosCheckmark,
+  IoIosArrowDropleft,
 } from 'react-icons/io'
 
 import { RiGitRepositoryCommitsLine } from 'react-icons/ri'
@@ -15,6 +16,8 @@ import {
   AiOutlineIssuesClose,
   AiOutlineLink,
 } from 'react-icons/ai'
+
+import { FaRegFolderOpen, FaRegFolder, FaRegFile } from 'react-icons/fa'
 
 import { FiFigma } from 'react-icons/fi'
 
@@ -30,4 +33,8 @@ export {
   RiGitRepositoryCommitsLine as LastCommitIcon,
   FiFigma as FigmaIcon,
   IoIosCheckmark as CheckIcon,
+  IoIosArrowDropleft as BackIcon,
+  FaRegFolderOpen as FolderOpenIcon,
+  FaRegFolder as FolderIcon,
+  FaRegFile as FileIcon,
 }

@@ -51,7 +51,7 @@ interface IconLinkProps {
   children: React.ReactNode
 }
 
-const IconLink: React.FC<IconLinkProps> = ({
+export const IconLink: React.FC<IconLinkProps> = ({
   icon,
   children,
   marginRight,
@@ -88,36 +88,26 @@ const IconLink: React.FC<IconLinkProps> = ({
 const Project: React.FC<ProjectProps> = ({ children, data }) => {
   const [css, theme] = useStyletron()
   return (
-    <Link href={`https://github.com/${data.full_name}`} target="_blank">
+    <Link href={`/${data.full_name}`}>
       <Card padded hover fullHeight>
         <Grid>
           <GridItem gridGap="20px">
             <Grid flexDirection="row" flexGridColumnCount={2}>
               {data?.owner?.avatar_url ? (
-                <Link
-                  href={`https://github.com/${data.full_name}`}
-                  target="_blank"
-                >
-                  <img
-                    src={data?.owner?.avatar_url}
-                    width={50}
-                    height={50}
-                    alt={`${data?.owner.login}`}
-                    className={css({
-                      borderRadius: '80px',
-                      marginRight: '12px',
-                    })}
-                  />
-                </Link>
+                <img
+                  src={data?.owner?.avatar_url}
+                  width={50}
+                  height={50}
+                  alt={`${data?.owner.login}`}
+                  className={css({
+                    borderRadius: '80px',
+                    marginRight: '12px',
+                  })}
+                />
               ) : null}
               <GridItem alignItems="start" gridGap="4px" width="100%">
                 <Paragraph size="l">
-                  <Link
-                    href={`https://github.com/${data.full_name}`}
-                    target="_blank"
-                  >
-                    <strong>{data?.full_name}</strong>
-                  </Link>
+                  <strong>{data?.full_name}</strong>
                 </Paragraph>
                 <Grid
                   flexDirection="row"
@@ -152,6 +142,7 @@ const Project: React.FC<ProjectProps> = ({ children, data }) => {
               </GridItem>
             </Grid>
             <Paragraph color="contentPrimary">{data?.description}</Paragraph>
+            {/*
             <Grid
               flexDirection="row"
               justifyContent="start"
@@ -184,7 +175,7 @@ const Project: React.FC<ProjectProps> = ({ children, data }) => {
                   </IconLink>
                 </Link>
               )}
-            </Grid>
+              </Grid>*/}
           </GridItem>
         </Grid>
       </Card>
