@@ -2,6 +2,7 @@ const repoEndpoint = 'https://api.github.com/repos'
 const gitHubHeaders = {
   Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
   'Content-Type': 'application/json',
+  'User-Agent': 'contribute.design',
 }
 
 export const getRepo = async ({ org, project }: any) => {
