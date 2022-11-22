@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import { Provider as StyletronProvider } from 'styletron-react'
 import { BaseProvider } from 'baseui'
@@ -8,8 +9,13 @@ import { debug, styletron } from '../helpers/styletron'
 import CustomTheme from '../styles/theme'
 import HeaderNavigation from '../components/HeaderNavigation'
 import Footer from '../components/Footer'
+import posthog from 'posthog-js'
 
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    posthog.init(`${process.env.NEXT_PUBLIC_POSTHOG_TOKEN}`)
+  })
+
   return (
     <StyletronProvider value={styletron} debug={debug} debugAfterHydration>
       <BaseProvider theme={CustomTheme}>
