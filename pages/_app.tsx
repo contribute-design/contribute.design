@@ -13,7 +13,8 @@ import posthog from 'posthog-js'
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    posthog.init(`${process.env.NEXT_PUBLIC_POSTHOG_TOKEN}`)
+    !window.location.href.includes('localhost') &&
+      posthog.init(`${process.env.NEXT_PUBLIC_POSTHOG_TOKEN}`)
   })
 
   return (
