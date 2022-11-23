@@ -59,6 +59,11 @@ const Title: React.FC<HeaderProps> = ({
                 style: ({ $theme }) => {
                   return {
                     color: $theme.colors.primary,
+                    // color: 'unset',
+                    // backgroundImage:
+                    //   'linear-gradient(to right bottom, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0.38))',
+                    // '-webkit-background-clip': 'text',
+                    // '-webkit-text-fill-color': 'transparent',
                     '@media (max-width: 1024px)': {
                       fontSize: '7vw',
                       lineHeight: '7.5vw',
@@ -81,6 +86,11 @@ const Title: React.FC<HeaderProps> = ({
                 style: ({ $theme }) => {
                   return {
                     color: $theme.colors.primary,
+                    // color: 'unset',
+                    // backgroundImage:
+                    //   'linear-gradient(to right bottom, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0.38))',
+                    // '-webkit-background-clip': 'text',
+                    // '-webkit-text-fill-color': 'transparent',
                     '@media (max-width: 1024px)': {
                       fontSize: '5.5vw',
                       lineHeight: '6vw',

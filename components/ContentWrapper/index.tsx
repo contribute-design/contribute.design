@@ -13,7 +13,7 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
   children,
 }) => {
   return (
-    <FlexGrid flexGridColumnCount={1}>
+    <FlexGrid flexGridColumnCount={1} paddingTop={['80px','80px','100px']}>
       <FlexGridItem justifyContent="center" display="flex">
         <FlexGrid
           flexGridColumnCount={1}

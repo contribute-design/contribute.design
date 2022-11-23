@@ -33,16 +33,16 @@ export default function Home() {
               >
                 <GridItem justifyContent="start">
                   <Image
-                    src="/images/badge.xl.svg"
+                    src="/images/badge.svg"
                     alt=".design/"
-                    width={272}
-                    height={75}
-                    style={{ width: '50%', maxWidth: '272px', height: 'auto' }}
+                    width={118}
+                    height={41}
+                    style={{ width: '50%', maxWidth: '118px', height: 'auto' }}
                   />
                   <Title size="xl" style={{ paddingTop: 0, paddingBottom: 0 }}>
                     <Highlight>Contribute</Highlight> to OpenSource{' '}
                     <Highlight>&</Highlight> <Highlight>impact</Highlight>{' '}
-                    milltions
+                    millions
                   </Title>
                 </GridItem>
                 <Paragraph size="xl">

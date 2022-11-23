@@ -76,11 +76,15 @@ const Card: React.FC<CardProps> = ({
                 borderBottomWidth: '1px',
                 borderLeftWidth: '1px',
                 height: fullHeight ? '100%' : undefined,
-                backgroundColor: $theme.colors.backgroundPrimary,
+                // backgroundColor: $theme.colors.backgroundPrimary,
+                // backgroundImage:
+                //   'linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)',
                 ':hover': {
                   backgroundColor: hover ? '#111' : undefined,
+                  // backgroundImage:
+                  // 'linear-gradient(rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%)',
                   // borderColor: $theme.colors.primary,
-                  borderColor: $theme.colors.contentTertiary,
+                  borderColor: `${$theme.colors.contentTertiary}40`,
                 },
                 padding: padded && !headerImage ? '8px' : undefined,
               }
