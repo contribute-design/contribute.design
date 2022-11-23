@@ -42,6 +42,9 @@ const HeaderNavigation = () => {
         display: 'flex',
         width: '100%',
         justifyContent: 'center',
+        position: 'fixed',
+        zIndex: '100',
+        backdropFilter: 'blur(30px)',
       })}
     >
       <div className={css({ maxWidth: '1400px', width: '100%' })}>
@@ -49,12 +52,14 @@ const HeaderNavigation = () => {
           overrides={{
             Root: {
               style: () => ({
-                paddingTop: '40px',
+                paddingTop: '20px',
                 paddingRight: '40px',
-                paddingBottom: '40px',
+                paddingBottom: '20px',
                 paddingLeft: '16px',
-                backgroundColor: theme.colors.black,
-                borderBottomWidth: '0px',
+                // backgroundColor: theme.colors.black,
+                backgroundColor: 'transparent',
+                borderBottomWidth: '1px',
+                borderBottomColor: 'rgba(255,255,255,0.05)',
                 '@media (max-width: 600px)': {
                   paddingTop: '20px',
                   paddingRight: '20px',
