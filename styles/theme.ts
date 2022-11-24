@@ -48,6 +48,8 @@ const CustomTheme: Theme = createDarkTheme(
       inputBorderError: colors.rose600,
       inputPlaceholder: colors.gray500,
 
+      menuFillHover: colors.gray900,
+
       buttonPrimaryFill: colors.rose600,
       buttonPrimaryText: colors.white,
       buttonPrimaryHover: '#000',

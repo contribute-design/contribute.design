@@ -80,7 +80,7 @@ const Card: React.FC<CardProps> = ({
                 // backgroundImage:
                 //   'linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)',
                 ':hover': {
-                  backgroundColor: hover ? '#111' : undefined,
+                  backgroundColor: hover ? `${$theme.colors.backgroundTertiary}70` : undefined,
                   // backgroundImage:
                   // 'linear-gradient(rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%)',
                   // borderColor: $theme.colors.primary,

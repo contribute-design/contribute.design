@@ -81,7 +81,10 @@ export default function Home() {
 
   return (
     <ContentWrapper>
-      <Meta title="project – design contributions to open source projects made easy" />
+      <Meta
+        title="project – design contributions to open source projects made easy"
+        image={`https://contribute.design/api/og/${org}/${project}`}
+      />
       {process.env.NEXT_PUBLIC_ENABLE_SITE_PREVIEW ? (
         error || data?.result === 404 ? (
           <>
