@@ -71,6 +71,14 @@ const FolderStructureItem: React.FC<FolderStructureItemProps> = ({
     </Paragraph>
   )
 }
+
+export const getServerSideProps = async ({ params }: any) => {
+  const props = { ...params }
+  return {
+    props: props,
+  }
+}
+
 export default function Home() {
   const router = useRouter()
   const [css, theme] = useStyletron()
