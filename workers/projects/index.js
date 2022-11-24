@@ -19,7 +19,7 @@ addEventListener('fetch', (event) => {
  * @returns {Promise<Response>}
  */
 async function handleRequest(request) {
-  const { pathname } = new URL(request.url)
+  const { pathname, searchParams } = new URL(request.url)
 
   if (request.method === 'PUT') {
     if (pathname.startsWith('/check')) {
@@ -57,8 +57,15 @@ async function handleRequest(request) {
         limit: limit ? limit : undefined,
         cursor: cursr ? cursr : undefined,
       })
+      for (const project of keys) {
+        if (project.metadata.hasDesign || searchParams.get('listAll')) {
+          projects.push(project)
+        }
+      }
       return keys
-        ? new Response(JSON.stringify({ keys, list_complete, cursor }))
+        ? new Response(
+            JSON.stringify({ keys: projects, list_complete, cursor })
+          )
         : new Response('404')
     }
 
