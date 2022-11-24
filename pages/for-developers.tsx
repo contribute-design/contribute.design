@@ -21,7 +21,10 @@ export default function Home() {
   const scrollTo = useScrollTo()
   return (
     <ContentWrapper>
-      <Meta title="developers – design contributions to open source projects made easy" />
+      <Meta
+        title="developers – design contributions to open source projects made easy"
+        image="https://contribute.design/images/og.developers.png"
+      />
       {process.env.NEXT_PUBLIC_ENABLE_SITE_PREVIEW ? (
         <>
           <Intro paddingBottom={['12vh', '12vh', '8vh']}>

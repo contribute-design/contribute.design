@@ -11,7 +11,7 @@ export interface MetaProps {
 const Meta: React.FC<MetaProps> = ({
   title = '.design/ – design contributions to open source projects made easy',
   description = 'OpenSource &amp; Design collaboration made easy. Empower designers, researchers, and product people to help you take your project to another level.',
-  image = 'https://contribute.design/images/og.png',
+  image = 'https://contribute.design/images/og.default.png',
   url = 'https://contrinute.design',
 }) => {
   return (

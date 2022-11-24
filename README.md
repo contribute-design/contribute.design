@@ -29,7 +29,7 @@ It might look simple at a glance but our setup contains a lot of different servi
 
 ### 🙌 .design/
 
-* [.design/](./design) - provides you with some basic guidelines of how we intend to run our design process and relevant information on all the things we design
+* [.design/](.design/) - provides you with some basic guidelines of how we intend to run our design process and relevant information on all the things we design
 
 ### 🎨 Frontend
 
@@ -54,6 +54,7 @@ CLOUDFLARE_NAMESPACE_PROJECT_CHECKS=
 PROJECTS_WORKER_URL=
 PROJECT_CHECKS_WORKER_URL=
 GITHUB_TOKEN=
+NEXT_PUBLIC_POSTHOG_TOKEN=
 NEXT_PUBLIC_ENABLE_SITE_PREVIEW=
 ```
     
