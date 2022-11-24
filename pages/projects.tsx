@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import Link from 'next/link'
 
@@ -11,15 +12,61 @@ import Intro from '../components/Intro'
 import Paragraph from '../components/Paragraph/index'
 import Spinner from '../components/Spinner'
 import { GridItem } from '../components/Grid'
+import { Select, Value } from '../components/Select'
+import ButtonGroup from '../components/ButtonGroup'
+import { usePersistentState } from '../helpers/usePersistentState'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 const project_url = '/api/projects'
 
 export default function Home() {
   const { data, error } = useSWR(project_url, fetcher)
+  const [sortOrder, setSortOrder] = usePersistentState<Value>('sortOrder', [])
+  const [sortedData, setSortedData] = useState({ keys: {} })
+
+  useEffect(() => {
+    let sortedData = {}
+    if (data) {
+      if (sortOrder.length > 0) {
+        if (sortOrder[0].id === 'date') {
+          sortedData = data.keys.sort(
+            (a: any, b: any) => a.metadata.createdAt < b.metadata.createdAt
+          )
+        }
+        if (sortOrder[0].id === 'name') {
+          sortedData = data.keys.sort((a: any, b: any) => a.name > b.name)
+        }
+        if (sortOrder[0].id === 'stars') {
+          sortedData = data.keys.sort(
+            (a: any, b: any) =>
+              a.metadata.stargazers_count < b.metadata.stargazers_count
+          )
+        }
+        if (sortOrder[0].id === 'issues') {
+          sortedData = data.keys.sort(
+            (a: any, b: any) =>
+              a.metadata.open_issues_count < b.metadata.open_issues_count
+          )
+        }
+        if (sortOrder[0].id === 'last_contribution') {
+          sortedData = data.keys.sort(
+            (a: any, b: any) =>
+              a.metadata.last_contribution < b.metadata.last_contribution
+          )
+        }
+      } else {
+        sortedData = data.keys.sort((a: any, b: any) => a.name > b.name)
+      }
+      setSortedData({ keys: sortedData })
+    }
+  }, [sortOrder])
+
   return (
     <ContentWrapper>
-      <Meta title="projects – design contributions to open source projects made easy" />
+      <Meta
+        title="projects – design contributions to open source projects made easy"
+        image="https://contribute.design/images/og.projects.png"
+      />
       {process.env.NEXT_PUBLIC_ENABLE_SITE_PREVIEW ? (
         <>
           <Intro paddingBottom={['12vh', '12vh', '8vh']}>
@@ -36,6 +83,20 @@ export default function Home() {
                 <Highlight>Add it!</Highlight>
               </Link>
             </Paragraph>
+            <ButtonGroup justifyContent="center">
+              <Select
+                options={[
+                  { label: 'Name', id: 'name' },
+                  { label: 'Last code contribution', id: 'last_contribution' },
+                  { label: 'Date added', id: 'date' },
+                  { label: 'Stars', id: 'stars' },
+                  { label: 'Open issues', id: 'issues' },
+                ]}
+                value={sortOrder}
+                placeholder="Sort by...."
+                onChange={(params) => setSortOrder(params.value)}
+              />
+            </ButtonGroup>
           </Intro>
           {error ? (
             <>
@@ -61,7 +122,11 @@ export default function Home() {
             </GridItem>
           ) : (
             <>
-              <ProjectList data={data} />
+              <ProjectList
+                data={
+                  Object.keys(sortedData.keys).length > 0 ? sortedData : data
+                }
+              />
             </>
           )}
         </>
