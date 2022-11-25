@@ -6,12 +6,11 @@ import { Grid, GridItem } from '../Grid/index'
 export interface TweetListProps {
   children?: React.ReactNode
   narrow?: boolean
+  data?: any
   'data-testid'?: string
 }
 
-const data = {}
-
-const TweetList: React.FC<TweetListProps> = ({ children, narrow }) => {
+const TweetList: React.FC<TweetListProps> = ({ children, narrow, data }) => {
   const [css, theme] = useStyletron()
   return (
     <Grid
@@ -22,24 +21,14 @@ const TweetList: React.FC<TweetListProps> = ({ children, narrow }) => {
       paddingLeft={[0, 0, '2vw', '4vw', '12vw']}
       paddingRight={[0, 0, '2vw', '4vw', '12vw']}
     >
-      <GridItem>
-        <Tweet />
-      </GridItem>
-      <GridItem>
-        <Tweet />
-      </GridItem>
-      <GridItem>
-        <Tweet />
-      </GridItem>
-      <GridItem>
-        <Tweet />
-      </GridItem>
-      <GridItem>
-        <Tweet />
-      </GridItem>
-      <GridItem>
-        <Tweet />
-      </GridItem>
+      {data &&
+        data.keys.map((project: any, i: number) => {
+          return (
+            <GridItem key={i} height="fit-content">
+              <Tweet />
+            </GridItem>
+          )
+        })}
     </Grid>
   )
 }
