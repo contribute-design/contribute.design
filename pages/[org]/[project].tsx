@@ -71,6 +71,14 @@ const FolderStructureItem: React.FC<FolderStructureItemProps> = ({
     </Paragraph>
   )
 }
+
+export const getServerSideProps = async ({ params }: any) => {
+  const props = { ...params }
+  return {
+    props: props,
+  }
+}
+
 export default function Home() {
   const router = useRouter()
   const [css, theme] = useStyletron()
@@ -82,7 +90,8 @@ export default function Home() {
   return (
     <ContentWrapper>
       <Meta
-        title="project – design contributions to open source projects made easy"
+        title={`${org}/${project} – Open Source project – is open to design contributions.`}
+        description={`Read the design contribution guidelines for ${org}/${project}. Contribtue to it and help the team level up their project and gain visibility and experience as a Designer.`}
         image={`https://contribute.design/api/og/${org}/${project}`}
       />
       {process.env.NEXT_PUBLIC_ENABLE_SITE_PREVIEW ? (

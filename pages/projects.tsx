@@ -64,7 +64,8 @@ export default function Home() {
   return (
     <ContentWrapper>
       <Meta
-        title="projects – design contributions to open source projects made easy"
+        title="A comprehensive list of Open Source projects open to Design contributions."
+        description="Discover Open Source projects with proper Design guidelines to help Designers and Product people to easily contribute and impact millions."
         image="https://contribute.design/images/og.projects.png"
       />
       {process.env.NEXT_PUBLIC_ENABLE_SITE_PREVIEW ? (
