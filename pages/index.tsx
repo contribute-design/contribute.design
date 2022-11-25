@@ -136,7 +136,7 @@ export default function Home() {
 
             <ButtonGroup justifyContent="center">
               <Link href="/projects">
-                <Button $as="span">See all 2,372 projects</Button>
+                <Button $as="span">See all projects</Button>
               </Link>
             </ButtonGroup>
           </Intro>
