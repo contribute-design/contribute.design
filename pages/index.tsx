@@ -31,7 +31,10 @@ export default function Home() {
 
   return (
     <ContentWrapper>
-      <Meta title="Design contributions to open source projects made easy" />
+      <Meta
+        title="Design contributions to open source projects made easy"
+        description="A comprehensive list and guide for open source projects to empower designers, researchers, and product people to contribute to their projects."
+      />
       {process.env.NEXT_PUBLIC_ENABLE_SITE_PREVIEW ? (
         <>
           <Intro paddingBottom={['12vh', '12vh', '8vh']}>

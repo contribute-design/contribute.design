@@ -22,7 +22,8 @@ export default function Home() {
   return (
     <ContentWrapper>
       <Meta
-        title="designers – design contributions to open source projects made easy"
+        title="Contribute to OpenSource projects &amp; impact millions"
+        description="Learn how easy it is to discover Open Source projects open to Design contributions and start collaborating with them in a glimpse."
         image="https://contribute.design/images/og.designers.png"
       />
       {process.env.NEXT_PUBLIC_ENABLE_SITE_PREVIEW ? (

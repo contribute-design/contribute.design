@@ -22,7 +22,8 @@ export default function Home() {
   return (
     <ContentWrapper>
       <Meta
-        title="developers – design contributions to open source projects made easy"
+        title="Enable Design collaboration on your Open Source projects."
+        description="Learn how easy it is to empower designers, researchers, and product people to help you take your project to another level. ​​All through a simple, yet powerful folder in your project."
         image="https://contribute.design/images/og.developers.png"
       />
       {process.env.NEXT_PUBLIC_ENABLE_SITE_PREVIEW ? (
