@@ -7,10 +7,7 @@ import { useStyletron } from 'baseui'
 import ContentWrapper from '../ContentWrapper'
 import { GitHubIcon, TwitterIcon, FigmaIcon } from '../Icon'
 import NavigationLink from '../NavigationLink'
-import { StyledNavigationList } from 'baseui/header-navigation'
-import { Block } from '../Block'
-import Input from '../Input'
-import Button from '../Button'
+import NewsletterForm from '../NewsletterForm'
 
 export interface FooterProps {
   children?: React.ReactNode
@@ -124,23 +121,7 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
             >
               Stay in the loop
             </Paragraph>
-            <Block display="flex" flexDirection="row">
-              <Block
-                display="flex"
-                flex="1 1 auto"
-                className={css({ marginRight: '12px' })}
-              >
-                <Input
-                  placeholder="my@email.com"
-                  onChange={(e) => console.log(e.target.value)}
-                />
-              </Block>
-              <Block display="flex" flex="0 0 auto">
-                <Button onClick={() => {}} type="secondary">
-                  Sign up
-                </Button>
-              </Block>
-            </Block>
+            <NewsletterForm />
           </GridItem>
         </Grid>
       </ContentWrapper>
