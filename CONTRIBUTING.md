@@ -132,7 +132,7 @@ Our current test coverage is 0... We're aiming to fix this ASAP and welcome any 
 We structure our messages like this:
 
 ```
-<type>: <subject>
+<type>(area): <subject>
 <BLANK LINE>
 <body>
 ```
@@ -140,7 +140,7 @@ We structure our messages like this:
 Example
 
 ```
-feat: new awesome feature
+feat(workers): new awesome feature
 
 Closes #111
 ```
