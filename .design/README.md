@@ -1,6 +1,18 @@
 <div align="center">
-  <h1>contribute<span style="color:#E11D48">,</span>design</h1>
+<a href="https://contribute.design"><img src="https://i.imgur.com/ZoPpMsS.png" /></a>
+  <h1>Design Guidelines & Resources</h1>
+  <p>A collection of design contribution guidelines and resources for contribute.design.</p>
 </div>
+
+## Table of contents
+
+- [Table of contents](#table-of-contents)
+- [Our design process](#our-design-process)
+- [Architecture + Flow diagrams](#architecture--flow-diagrams)
+  - [Flow diagrams](#flow-diagrams)
+- [Product Design](#product-design)
+- [Materials](#materials)
+  - [Logos, Badges, FavIcons](#logos-badges-favicons)
 
 ## Our design process
 
