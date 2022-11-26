@@ -25,7 +25,7 @@ export default async function handler(req: NextRequest) {
     status: projectIsValid ? 200 : 404,
     headers: {
       'Content-Type': 'application/json',
-      'Cache-Control': 'public, s-maxage=36000, stale-while-revalidate=18000',
+      'Cache-Control': 'public, s-maxage=1200, stale-while-revalidate=18000',
     },
   })
 }

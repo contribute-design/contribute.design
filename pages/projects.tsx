@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import Link from 'next/link'
+import compareDesc from 'date-fns/compareDesc'
 
 import EmptyPage from '../components/EmptyPage'
 import Meta from '../components/Meta'
@@ -29,37 +30,49 @@ export default function Home() {
     if (data) {
       if (sortOrder.length > 0) {
         if (sortOrder[0].id === 'date') {
-          sortedData = data.keys.sort(
-            (a: any, b: any) => a.metadata.createdAt < b.metadata.createdAt
+          sortedData = data.keys.sort((a: any, b: any) =>
+            compareDesc(
+              new Date(a.metadata.createdAt),
+              new Date(b.metadata.createdAt)
+            )
           )
         }
         if (sortOrder[0].id === 'name') {
-          sortedData = data.keys.sort((a: any, b: any) => a.name > b.name)
+          sortedData = data.keys.sort((a: any, b: any) =>
+            a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+          )
         }
         if (sortOrder[0].id === 'stars') {
           sortedData = data.keys.sort(
             (a: any, b: any) =>
-              a.metadata.stargazers_count < b.metadata.stargazers_count
+              b.metadata.stargazers_count - a.metadata.stargazers_count
           )
         }
         if (sortOrder[0].id === 'issues') {
           sortedData = data.keys.sort(
             (a: any, b: any) =>
-              a.metadata.open_issues_count < b.metadata.open_issues_count
+              b.metadata.open_issues_count - a.metadata.open_issues_count
           )
         }
         if (sortOrder[0].id === 'last_contribution') {
-          sortedData = data.keys.sort(
-            (a: any, b: any) =>
-              a.metadata.last_contribution < b.metadata.last_contribution
+          sortedData = data.keys.sort((a: any, b: any) =>
+            compareDesc(
+              new Date(a.metadata.last_contribution),
+              new Date(b.metadata.last_contribution)
+            )
           )
         }
       } else {
-        sortedData = data.keys.sort((a: any, b: any) => a.name > b.name)
+        sortedData = data.keys.sort((a: any, b: any) =>
+          compareDesc(
+            new Date(a.metadata.createdAt),
+            new Date(b.metadata.createdAt)
+          )
+        )
       }
       setSortedData({ keys: sortedData })
     }
-  }, [sortOrder])
+  }, [sortOrder, data])
 
   return (
     <ContentWrapper>
