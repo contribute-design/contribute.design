@@ -73,7 +73,7 @@ export const IndexDevelopersMobile: React.FC = () => (
         through a simple, yet powerful folder in your repo.
       </Paragraph>
       <ButtonGroup justifyContent="center">
-        <Link href="/for-designers">
+        <Link href="/for-developers">
           <Button $as="span">Enable designers to collaborate</Button>
         </Link>
       </ButtonGroup>
