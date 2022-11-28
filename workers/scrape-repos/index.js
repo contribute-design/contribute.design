@@ -52,11 +52,25 @@ async function handleSchedule(scheduledDate) {
       const designCheck = await fetch(`${ghRepo}/contents/.design`, headers)
       const designResults = await gatherResponse(designCheck)
       let hasDesign = true
+      let designType = 'folder'
       if (designResults.message) {
-        // No .design folder, still remove this key from Check
-        // await PROJECT_CHECKS.delete(projectCheck.name);
-        console.log(projectCheck.name, 'no .design folder')
+        console.log(
+          projectCheck.name,
+          'no .design folder – what about design.md?'
+        )
         hasDesign = false
+        const designFileCheck = await fetch(`${ghRepo}/contents`, headers)
+        const designFileResults = await gatherResponse(designFileCheck)
+        const designFileInResults = designFileResults.find(function (content) {
+          return content.name.toLowerCase() === 'design.md'
+        })
+        if (designFileInResults) {
+          console.log(projectCheck.name, 'design.md found!')
+          hasDesign = true
+          designType = 'file'
+        } else {
+          console.log(projectCheck.name, 'no design.md')
+        }
       }
       await PROJECTS.put(projectCheck.name, JSON.stringify(projectData), {
         metadata: {
@@ -64,6 +78,7 @@ async function handleSchedule(scheduledDate) {
             project && metadata.createdAt ? metadata.createdAt : new Date(),
           lasUpdatedAt: new Date(),
           hasDesign: hasDesign,
+          designType: hasDesign ? designType : false,
           full_name: projectData.full_name,
           description: projectData.description,
           owner: {
