@@ -5,6 +5,7 @@ import {
   IoIosGitBranch,
   IoIosCheckmark,
   IoIosArrowDropleft,
+  IoIosInfinite, 
 } from 'react-icons/io'
 
 import { RiGitRepositoryCommitsLine } from 'react-icons/ri'
@@ -37,4 +38,5 @@ export {
   FaRegFolderOpen as FolderOpenIcon,
   FaRegFolder as FolderIcon,
   FaRegFile as FileIcon,
+  IoIosInfinite as CreationIcon,
 }

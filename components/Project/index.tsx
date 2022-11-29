@@ -16,9 +16,11 @@ import {
   GitHubIcon,
   LinkIcon,
   GuidelineIcon,
+  CreationIcon,
   LastCommitIcon,
 } from '../Icon'
 import Highlight from '../Highlight'
+import Separator from '../Separator'
 
 export interface Project {
   full_name: string
@@ -29,6 +31,7 @@ export interface Project {
     url?: string
   }
   homepage?: string
+  project_created_at?: string
   stargazers_count?: number
   watchers_count?: number
   open_issues_count?: number
@@ -109,39 +112,9 @@ const Project: React.FC<ProjectProps> = ({ children, data }) => {
                 <Paragraph size="l">
                   <strong>{data?.full_name}</strong>
                 </Paragraph>
-                <Grid
-                  flexDirection="row"
-                  justifyContent="start"
-                  flexGridRowGap="8px"
-                >
-                  {data.stargazers_count && (
-                    <IconLink icon={<StarIcon size={16} />} alt="Stars">
-                      {intToString(data.stargazers_count)}
-                    </IconLink>
-                  )}
-                  {/* <IconLink icon={<ForkIcon size={16} />}>
-                  {data?.forks_count}
-                </IconLink>
-                <IconLink icon={<EyeIcon size={16} />}>
-                  {data?.watchers_count}
-                </IconLink> */}
-                  {data.open_issues_count && (
-                    <IconLink icon={<IssueIcon size={16} />} alt="Open issues">
-                      {intToString(data.open_issues_count)}
-                    </IconLink>
-                  )}
-                  {data.last_contribution && (
-                    <IconLink
-                      icon={<LastCommitIcon size={16} />}
-                      alt="Last contribution"
-                    >
-                      {timeAgo(data.last_contribution)}
-                    </IconLink>
-                  )}
-                </Grid>
               </GridItem>
             </Grid>
-            <Paragraph color="contentPrimary">{data?.description}</Paragraph>
+            <Paragraph color="contentSecondary">{data?.description}</Paragraph>
             {/*
             <Grid
               flexDirection="row"
@@ -176,6 +149,43 @@ const Project: React.FC<ProjectProps> = ({ children, data }) => {
                 </Link>
               )}
               </Grid>*/}
+            <Separator />
+            <Grid
+              flexDirection="row"
+              justifyContent="start"
+              flexGridRowGap="8px"
+              alignItems="center"
+            >
+              {data.stargazers_count && (
+                <IconLink icon={<StarIcon size={16} />} alt="Stars">
+                  {intToString(data.stargazers_count)}
+                </IconLink>
+              )}
+              {/* <IconLink icon={<ForkIcon size={16} />}>
+                  {data?.forks_count}
+                </IconLink>
+                <IconLink icon={<EyeIcon size={16} />}>
+                  {data?.watchers_count}
+                </IconLink> */}
+              {data.open_issues_count && (
+                <IconLink icon={<IssueIcon size={16} />} alt="Open issues">
+                  {intToString(data.open_issues_count)}
+                </IconLink>
+              )}
+              {data.project_created_at && (
+                <IconLink icon={<CreationIcon size={16} />} alt="Creation date">
+                  {timeAgo(data.project_created_at)}
+                </IconLink>
+              )}
+              {data.last_contribution && (
+                <IconLink
+                  icon={<LastCommitIcon size={16} />}
+                  alt="Last contribution"
+                >
+                  {timeAgo(data.last_contribution)}
+                </IconLink>
+              )}
+            </Grid>
           </GridItem>
         </Grid>
       </Card>
