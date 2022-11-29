@@ -130,7 +130,7 @@ const Project: React.FC<ProjectProps> = ({ children, data }) => {
                       {intToString(data.open_issues_count)}
                     </IconLink>
                   )}
-                  {data.open_issues_count && (
+                  {data.last_contribution && (
                     <IconLink
                       icon={<LastCommitIcon size={16} />}
                       alt="Last contribution"
