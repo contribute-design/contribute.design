@@ -197,7 +197,7 @@ export default function Home() {
                         </IconLink>
                       </Paragraph>
                     )}
-                    {data.result.metadata.open_issues_count && (
+                    {data.result.metadata.last_contribution && (
                       <Paragraph>
                         <IconLink
                           icon={<LastCommitIcon size={16} />}
