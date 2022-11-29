@@ -41,8 +41,9 @@ const CustomTheme: Theme = createDarkTheme(
       backgroundTertiary: colors.gray800,
       backgroundSecondary: colors.gray900,
 
-      inputFill: colors.gray900,
+      inputFill: '#000',
       inputFillActive: colors.gray800,
+      inputFillDisabled: colors.gray900,
       inputFillError: `${colors.rose900}30`,
       inputBorder: colors.gray800,
       inputBorderError: colors.rose600,

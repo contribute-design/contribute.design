@@ -62,6 +62,14 @@ export default function Home() {
             )
           )
         }
+        if (sortOrder[0].id === 'project_age') {
+          sortedData = data.keys.sort((a: any, b: any) =>
+            compareDesc(
+              new Date(a.metadata.project_created_at),
+              new Date(b.metadata.project_created_at)
+            )
+          )
+        }
       } else {
         sortedData = data.keys.sort((a: any, b: any) =>
           compareDesc(
@@ -102,9 +110,10 @@ export default function Home() {
                 options={[
                   { label: 'Name', id: 'name' },
                   { label: 'Last code contribution', id: 'last_contribution' },
-                  { label: 'Date added', id: 'date' },
                   { label: 'Stars', id: 'stars' },
                   { label: 'Open issues', id: 'issues' },
+                  { label: 'Date added', id: 'date' },
+                  { label: 'Project age', id: 'project_age' },
                 ]}
                 value={sortOrder}
                 placeholder="Sort by...."

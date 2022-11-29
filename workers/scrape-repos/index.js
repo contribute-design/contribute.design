@@ -87,6 +87,7 @@ async function handleSchedule(scheduledDate) {
             url: projectData.owner.url,
           },
           homepage: projectData.homepage,
+          project_created_at: projectData.created_at,
           stargazers_count: projectData.stargazers_count,
           watchers_count: projectData.watchers_count,
           open_issues_count: projectData.open_issues_count,
