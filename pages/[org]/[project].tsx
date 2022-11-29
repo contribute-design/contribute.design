@@ -243,7 +243,14 @@ export default function Home() {
                     <Link
                       href={
                         !data.design.error
-                          ? `https://github.com/${data.result.metadata.full_name}/tree/main/.design`
+                          ? `https://github.com/${
+                              data.result.metadata.full_name
+                            }/tree/main/${
+                              data.result.metadata.hasDesign &&
+                              data.result.metadata.designType === 'folder'
+                                ? '.design'
+                                : ''
+                            }`
                           : '#'
                       }
                       target="_blank"
@@ -256,7 +263,14 @@ export default function Home() {
                       >
                         <FolderOpenIcon size={16} />
                         <Paragraph>
-                          <strong>.design/</strong>
+                          <strong>
+                            .
+                            {data.result.metadata.hasDesign &&
+                            data.result.metadata.designType === 'folder'
+                              ? 'design'
+                              : ''}
+                            /
+                          </strong>
                         </Paragraph>
                       </GridItem>
                     </Link>
@@ -290,7 +304,12 @@ export default function Home() {
                             <FolderStructureItem
                               key={i}
                               type={item.type}
-                              link={`https://github.com/${org}/${project}/tree/main/.design/${item.name}`}
+                              link={`https://github.com/${org}/${project}/tree/main/${
+                                data.result.metadata.hasDesign &&
+                                data.result.metadata.designType === 'folder'
+                                  ? '.design'
+                                  : ''
+                              }/${item.name}`}
                             >
                               {item.name}
                             </FolderStructureItem>

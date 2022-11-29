@@ -18,7 +18,7 @@ export default async function handler(req: NextRequest) {
   if (!ghProject.error) {
     projectIsValid = true
   } else {
-    console.log('no gh repo', org, project)
+    // console.log('no gh repo', org, project)
   }
 
   return new Response(projectIsValid ? '{success:200}' : '{error:404}', {
