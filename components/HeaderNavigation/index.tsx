@@ -44,7 +44,9 @@ const HeaderNavigation = () => {
         justifyContent: 'center',
         position: 'fixed',
         zIndex: '100',
-        backdropFilter: 'blur(30px)',
+        backdropFilter: 'saturate(180%) blur(8px)',
+        boxShadow: 'rgba(255, 255, 255, 0.05) 0px -1px 0px 0px inset',
+        backgroundColor: 'rgba(0, 0, 0, 0.6)',
       })}
     >
       <div className={css({ maxWidth: '1400px', width: '100%' })}>
