@@ -66,6 +66,14 @@ const Button: React.FC<ButtonProps> = ({
                   borderTopColor: $theme.colors.accent,
                   borderBottomColor: $theme.colors.accent,
                 },
+                ':disabled': {
+                  backgroundColor: 'transparent',
+                  borderLeftColor: $theme.colors.backgroundTertiary,
+                  borderRightColor: $theme.colors.backgroundTertiary,
+                  borderTopColor: $theme.colors.backgroundTertiary,
+                  borderBottomColor: $theme.colors.backgroundTertiary,
+                  color: $theme.colors.contentTertiary,
+                }
               }
             } else {
               return {
