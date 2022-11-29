@@ -21,3 +21,15 @@ export const checkDesignInRepo = async ({ org, project }: any) => {
   // console.log(res)
   return !res.message ? res : { error: true }
 }
+
+export const checkDesignMdInRepo = async ({ org, project }: any) => {
+  const endpoint = `${repoEndpoint}/${org}/${project}/contents`
+  const res = await fetch(endpoint, {
+    headers: gitHubHeaders,
+  }).then((response) => response.json())
+  const designFileInResults = res.find(function (content: any) {
+    return content.name.toLowerCase() === 'design.md'
+  })
+  // console.log(res)
+  return !res.message ? [designFileInResults] : { error: true }
+}

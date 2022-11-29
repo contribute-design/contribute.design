@@ -15,7 +15,7 @@ export default async function handler(req: NextRequest) {
   const parsedProject = await getProject({ key: `${org}/${project}` })
 
   const result = parsedProject.result
-  console.log(result)
+  // console.log(result)
   return new ImageResponse(
     result.metadata ? (
       <div

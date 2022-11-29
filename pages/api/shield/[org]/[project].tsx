@@ -34,7 +34,7 @@ export default async function handler(req: NextRequest) {
         value: JSON.stringify({ date: Date.now(), ipData, geoData }),
       })
     } else {
-      console.log('no gh repo', org, project)
+      // console.log('no gh repo', org, project)
     }
   } else {
     projectIsValid = true
