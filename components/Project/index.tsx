@@ -172,11 +172,6 @@ const Project: React.FC<ProjectProps> = ({ children, data }) => {
                   {intToString(data.open_issues_count)}
                 </IconLink>
               )}
-              {data.project_created_at && (
-                <IconLink icon={<CreationIcon size={16} />} alt="Creation date">
-                  {timeAgo(data.project_created_at)}
-                </IconLink>
-              )}
               {data.last_contribution && (
                 <IconLink
                   icon={<LastCommitIcon size={16} />}

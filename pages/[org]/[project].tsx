@@ -21,6 +21,7 @@ import {
   IssueIcon,
   LastCommitIcon,
   LinkIcon,
+  CreationIcon,
 } from '../../components/Icon'
 import NavigationLink from '../../components/NavigationLink'
 import Card from '../../components/Card'
@@ -194,6 +195,17 @@ export default function Home() {
                         >
                           Issues:{' '}
                           {intToString(data.result.metadata.open_issues_count)}
+                        </IconLink>
+                      </Paragraph>
+                    )}
+                    {data.result.metadata.project_created_at && (
+                      <Paragraph>
+                        <IconLink
+                          icon={<CreationIcon size={16} />}
+                          alt="Creation date"
+                        >
+                          Created:{' '}
+                          {timeAgo(data.result.metadata.project_created_at)}
                         </IconLink>
                       </Paragraph>
                     )}
