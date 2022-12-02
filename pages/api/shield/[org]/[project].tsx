@@ -53,7 +53,7 @@ export default async function handler(req: NextRequest) {
     status: 200,
     headers: {
       'Content-Type': 'image/svg+xml;charset=utf-8',
-      'Cache-Control': 'public, s-maxage=1200, stale-while-revalidate=18000',
+      'Cache-Control': 'public, s-maxage=1200, stale-while-revalidate=1200',
     },
   })
 }
