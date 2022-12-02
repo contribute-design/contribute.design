@@ -242,7 +242,7 @@ export default function Home() {
                   <Grid>
                     <Link
                       href={
-                        !data.design.error
+                        data.design && !data.design.error
                           ? `https://github.com/${
                               data.result.metadata.full_name
                             }/tree/main/${
@@ -275,7 +275,7 @@ export default function Home() {
                       </GridItem>
                     </Link>
                     <Block>
-                      {data.design.error ? (
+                      {!data.design || data.design.error ? (
                         <>
                           <GridItem flexGridColumnGap="20px">
                             <Title size="s" align="center">
