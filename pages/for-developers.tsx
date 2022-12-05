@@ -173,8 +173,9 @@ export default function Home() {
                   open-source project.
                 </Paragraph>
                 <Paragraph size="xl">
-                  Mention <strong>@contrib_design</strong> in your tweet, and we
-                  will make sure to re-tweet and spread the word! ​
+                  Mention <strong>@contrib_design</strong> or{' '}
+                  <strong>@contribute@fosstodon.org</strong> in your post, and
+                  we will make sure to spread the word! ​
                 </Paragraph>
                 <ButtonGroup>
                   <Link

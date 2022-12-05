@@ -5,10 +5,10 @@ import {
   IoIosGitBranch,
   IoIosCheckmark,
   IoIosArrowDropleft,
-  IoIosInfinite, 
+  IoIosInfinite,
 } from 'react-icons/io'
 
-import { RiGitRepositoryCommitsLine } from 'react-icons/ri'
+import { RiGitRepositoryCommitsLine, RiMastodonFill } from 'react-icons/ri'
 
 import { BsJournalCheck } from 'react-icons/bs'
 
@@ -39,4 +39,5 @@ export {
   FaRegFolder as FolderIcon,
   FaRegFile as FileIcon,
   IoIosInfinite as CreationIcon,
+  RiMastodonFill as MastodonIcon,
 }

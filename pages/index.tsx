@@ -150,6 +150,15 @@ export default function Home() {
             </Paragraph>
             <TweetList />
             <ButtonGroup justifyContent="center">
+              <Link
+                href="https://fosstodon.org/@contribute"
+                rel="me"
+                target="_blank"
+              >
+                <Button type="secondary" $as="span">
+                  Follow us on mastodon
+                </Button>
+              </Link>
               <Link href="https://twitter.com/contrib_design" target="_blank">
                 <Button type="secondary" $as="span">
                   Follow us on twitter
