@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 
 import Logo from '../Logo'
 import NavigationLink from '../NavigationLink'
-import { GitHubIcon, TwitterIcon } from '../Icon'
+import { GitHubIcon, MastodonIcon, TwitterIcon } from '../Icon'
 
 const navLinks = [
   { title: 'For developers', path: '/for-developers' },
@@ -24,6 +24,11 @@ const socialLinks = [
     icon: <GitHubIcon size={20} />,
     title: 'GitHub',
     path: 'https://github.com/contribute-design',
+  },
+  {
+    icon: <MastodonIcon size={20} style={{ marginLeft: 8 }} />,
+    title: 'mastodon',
+    path: 'https://fosstodon.org/@contribute',
   },
   {
     icon: <TwitterIcon size={20} style={{ marginLeft: 8 }} />,

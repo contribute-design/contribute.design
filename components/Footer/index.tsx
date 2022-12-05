@@ -29,6 +29,11 @@ const socialLinks = [
   },
   {
     icon: <TwitterIcon size={20} style={{ marginLeft: 8 }} />,
+    title: 'mastodon',
+    path: 'https://fosstodon.org/@contribute',
+  },
+  {
+    icon: <TwitterIcon size={20} style={{ marginLeft: 8 }} />,
     title: 'Twitter',
     path: 'https://twitter.com/contrib_design',
   },
