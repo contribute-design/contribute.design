@@ -24,7 +24,12 @@ export default async function handler(req: NextRequest) {
     }
   }
 
-  const result = { result: parsedProject.result, design: gitHubDesignContent }
+  const parsedValue = JSON.parse(parsedProject.result.value)
+
+  const result = {
+    result: { value: parsedValue, metadata: parsedProject.result.metadata },
+    design: gitHubDesignContent,
+  }
 
   return new Response(parsedProject ? JSON.stringify(result) : '{error:404}', {
     status: parsedProject ? 200 : 404,

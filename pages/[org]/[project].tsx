@@ -257,7 +257,9 @@ export default function Home() {
                         data.design && !data.design.error
                           ? `https://github.com/${
                               data.result.metadata.full_name
-                            }/tree/main/${
+                            }/tree/${
+                              data.result.value.default_branch || 'main'
+                            }/${
                               data.result.metadata.hasDesign &&
                               data.result.metadata.designType === 'folder'
                                 ? '.design'
@@ -287,7 +289,7 @@ export default function Home() {
                       </GridItem>
                     </Link>
                     <Block>
-                      {!data.design || data.design.error ? (
+                      {!data.design || data.design.error ? (
                         <>
                           <GridItem flexGridColumnGap="20px">
                             <Title size="s" align="center">
@@ -316,12 +318,7 @@ export default function Home() {
                             <FolderStructureItem
                               key={i}
                               type={item.type}
-                              link={`https://github.com/${org}/${project}/tree/main/${
-                                data.result.metadata.hasDesign &&
-                                data.result.metadata.designType === 'folder'
-                                  ? '.design'
-                                  : ''
-                              }/${item.name}`}
+                              link={`${item.html_url}`}
                             >
                               {item.name}
                             </FolderStructureItem>
