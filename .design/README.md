@@ -36,7 +36,11 @@ https://www.figma.com/file/0TyptXIxXyxiNmzAqZjNkc/architecture?node-id=3%3A198
 ## Product Design
 
 Figma files:
+https://www.figma.com/design/92uqxuUHMbTpBPPXMWE0QA/contribute.design?node-id=89-1626&t=YXwD76yzBQUT8uhH-1
+
+
 ## Materials
 ### Logos, Badges, FavIcons
 
+https://www.figma.com/design/LFvXQCSISBgHNASrW6Z4fN/assets?node-id=1-110
 
