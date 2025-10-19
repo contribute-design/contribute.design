@@ -16,11 +16,12 @@
 
 ## Our design process
 
-1. We tend to mark issues with a `design:required` label for everything where we love design input
-2. Feel free to create issues on ANYTHING that you feel is relevant (can't be too crazy) with a `design:input` label
-3. We groom through the issues and work asynchronously on them – providing relevant materials for discussion right in the issues.
-4. Depending on the issue we implement it on a branch (which create a preview environment) and mark it as `design:review` 
-5. Once reviewed we will merge and deploy it to production
+1. We tend to mark issues with a `design:ux` label for everything where we love solution proposals and ux design
+2. We tend to mark issues with a `design:ui` label for everything where we need ui design for existing solutions
+3. Feel free to create issues on ANYTHING that you feel is relevant (can't be too crazy) with an `idea` or `enhancement `label
+4. We groom through the issues and work asynchronously on them – providing relevant materials for discussion right in the issues
+5. Depending on the issue, we implement it on a branch (which creates a preview environment) and mark it as `design:review` 
+6. Once reviewed, we will merge and deploy it to production
    
 ## Architecture + Flow diagrams
 
