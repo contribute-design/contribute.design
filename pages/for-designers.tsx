@@ -89,21 +89,21 @@ export default function Home() {
           </Intro>
           <a id="start"></a>
           <Intro paddingTop={['4vh', '4vh', '8vh']}>
-            <Title size="m" align="center">
+            <Title size="m">
               <Step>1</Step>
             </Title>
-            <Title size="l" align="center">
+            <Title size="l">
               Discover <Highlight>relevant</Highlight> projects
             </Title>
-            <Paragraph size="xl" align="center">
+            <Paragraph size="xl">
               <strong>
                 Browse through our directory of projects looking for design
                 contributions.
               </strong>
             </Paragraph>
-            <Paragraph size="xl" align="center">
+            <Paragraph size="xl">
               Be sure to get yourself familiar with the project and understand
-              what it does. We’re pretty sure every project can benefit from
+              what it does. We're pretty sure every project can benefit from
               your skills.
             </Paragraph>
             <ButtonGroup justifyContent="center">
